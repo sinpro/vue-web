@@ -27,6 +27,7 @@
 <script>
 import silderBar from '../silderBar';
 export default {
+  name:'bankMain',
   data(){
     return {
 

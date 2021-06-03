@@ -13,15 +13,16 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.14.3",
     "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/register": "^7.13.16",
     "@babel/runtime-corejs3": "^7.14.0",
     "autoprefixer": "^9.7.6",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.7.0",
-    "babel-register": "^6.26.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^5.0.1",
@@ -59,17 +60,15 @@
     "axios": "^0.21.1",
     "element-ui": "^2.15.2",
     "js-cookie": "^2.2.1",
-    "md5": "^2.3.0",
     "mockjs": "^1.1.0",
     "promise": "^8.1.0",
-    "qs": "^6.10.1",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
   },
   "repository": {
     "type": "git",
-    "url": "http://29.2.186.196/LIZHONGHAO537/pc-vue.git"
+    "url": "https://github.com/sinpro/vue-web.git"
   },
   "keywords": [
     "vue",

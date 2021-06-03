@@ -77,7 +77,6 @@ ajax.interceptors.request.use(
 
 ajax.interceptors.response.use(
   (response) => {
-    debugger
     // console.log('noLoading', !response.config['noLoading'])
     if (!response.config['noLoading'] && ajaxCounter > 0) {
       ajaxCounter--;

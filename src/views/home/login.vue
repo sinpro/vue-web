@@ -100,6 +100,7 @@ export default {
           ({ data = {}, errorCode = '', errorMessage = '响应失败' }) => {
             if (errorCode === '000000') {
               console.log(data,666)
+              this.$router.push('/home')
             } else {
               this.$message.error(errorMessage);
             }

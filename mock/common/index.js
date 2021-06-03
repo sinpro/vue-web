@@ -1,5 +1,5 @@
 const Mock = require('mockjs');
-const { createReturnData } = require('../uilts');
+const { createReturnData } = require('../untils');
 module.exports = [
   /**
    * [描述] 【xxx】登录接口

@@ -14,6 +14,7 @@ import bankHeader from '../bankHeader';
 import bankMain from '../bankMain';
 import bankFooter from '../bankFooter';
 export default {
+  name:'layout',
   data(){
     return {
       isFixed:false

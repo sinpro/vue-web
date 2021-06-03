@@ -1,6 +1,7 @@
 let webpack = require('webpack'),
     config = require('../config'),
     webpackConfig = require('./webpack.dev.conf'),
+    mock = require('../mock/mock-server'),
     opn = require('opn'),
     path = require('path'),
     express = require('express'),
@@ -42,7 +43,8 @@ let url = 'http://localhost:' + config.devServer.port
 devMiddleware.waitUntilValid(function () {
     console.log('> Listening at ' + url + '\n')
 })
-
+//  备注
+mock(app);
 module.exports = app.listen(config.devServer.port, function (err) {
     if (err) {
         console.log(err)

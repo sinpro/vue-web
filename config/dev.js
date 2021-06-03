@@ -5,7 +5,7 @@ const host = {
 };
 module.exports = {
 	token:'56665656xxxxx',
-	port: 8823,
+	port: 8080,
 	proxy: {
 		'(/basic/**)|(/permission/**)|(/trade/**)': {
 			target: host.uat,
