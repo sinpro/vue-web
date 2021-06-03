@@ -1,0 +1,8 @@
+.fll{float: left;}
+.fll{float: right}
+.clearfix:after {
+  content:"";
+  display:block;
+  clear:both;
+}
+.clearfix{zoom:1;} // 兼容ie，触发haslayout
