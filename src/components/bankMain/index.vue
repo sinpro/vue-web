@@ -45,6 +45,7 @@ export default {
 .bank-main{
   background-color: #F8F8FB;
   width: 100%;
+  min-height:calc(100vh - 196px);
   &-cont{
     width: 1200px;
     margin: 0 auto;

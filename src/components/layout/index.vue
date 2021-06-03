@@ -1,12 +1,11 @@
 <template>
   <div>
     <!--头部-->
-    <bankHeader id="bankHeader"></bankHeader>
+    <bankHeader></bankHeader>
     <!--内容-->
-    {{isFixed}}222
-    <bankMain id="bankMain"></bankMain>
+    <bankMain></bankMain>
     <!--头部-->
-    <bankFooter id="bankFooter" :class="!isFixed?'posfixB':''"></bankFooter>
+    <bankFooter></bankFooter>
   </div>
 </template>
 <script>
@@ -32,7 +31,6 @@ export default {
   methods:{
     hasScrollbar() {
       this.isFixed= document.body.scrollHeight > (window.innerHeight || document.documentElement.clientHeight);
-      console.log(this.isFixed)
     }
   },
   beforeDestroy() {
@@ -41,9 +39,4 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.posfixB{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-}
 </style>

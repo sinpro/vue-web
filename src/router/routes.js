@@ -1,30 +1,19 @@
-import home from './home';
+import home from './home'; // 首页登录
+import cashManagement from './cashManagement';
 export default [{
   path: '/',
   redirect: {
     name: 'Login'
   }
 },
+  ...home, // 首页模块
   {
     path: '/layout',
     name: 'layout',
     component: () =>
       import ('src/components/layout'),
     children:[
-      ...home
+      ...cashManagement, //现金管理
     ]
   },
-  { //登录
-    path: '/login',
-    name: 'Login',
-    component: () =>
-      import ('src/views/home/Login.vue'),
-    meta: {
-      title: '登录',
-      keepAlive: false,
-      requireAuth: true,
-      roles: ['admin', 'editor'],
-    }
-  }
-
 ];

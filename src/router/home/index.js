@@ -1,4 +1,17 @@
-export default [{ //首页
+export default [
+  { //登录
+    path: '/login',
+    name: 'Login',
+    component: () =>
+      import ('src/views/home/Login.vue'),
+    meta: {
+      title: '登录',
+      keepAlive: false,
+      requireAuth: true,
+      roles: ['admin', 'editor'],
+    }
+  },
+  { //首页
   path: '/home',
   name: 'Home',
   component: () =>
@@ -9,4 +22,4 @@ export default [{ //首页
     requireAuth: true,
     roles: ['admin', 'editor'],
   }
-  },]
+  }]

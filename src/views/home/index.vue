@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    11111
+    <bankHeader></bankHeader>
   </div>
 </template>
 <script>
-import layout from 'src/components/layout';
+import bankHeader from 'src/components/bankHeader';
 export default {
   name:'Home',
   data(){
@@ -13,7 +13,7 @@ export default {
     }
   },
   components:{
-    layout
+    bankHeader
   },
   mounted(){
 

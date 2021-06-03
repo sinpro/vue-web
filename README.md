@@ -16,7 +16,7 @@
 - [vue@2.x](http://cn.vue.org/)
 - [vue-router@2.x](http://router.vue.js.org/zh-cn)
 - [vuex@2.x](http://vuex.vue.js.org/zh-cn)
-- [ant.design](https://ant.design/components/overview-cn/)
+- [element-ui](https://element.eleme.cn/#/zh-CN)
 
 ### 项目结构
 ```js

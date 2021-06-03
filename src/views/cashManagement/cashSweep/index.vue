@@ -1,11 +1,10 @@
 <template>
-  <div class="bank-footer">
-
+  <div>
+    cashSweep
   </div>
 </template>
 <script>
 export default {
-  name:'bankFooter',
   data(){
     return {
 
@@ -17,14 +16,8 @@ export default {
   mounted(){
 
   },
-  watch:{
-  },
 }
 </script>
 <style lang="scss" scoped>
-.bank-footer{
-  height:76px;
-  width: 100%;
-  background-color: #373737;
-}
+
 </style>
