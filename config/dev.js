@@ -4,6 +4,7 @@ const host = {
 	dev: 'http://www.baidu.com'
 };
 module.exports = {
+	token:'56665656xxxxx',
 	port: 8823,
 	proxy: {
 		'(/basic/**)|(/permission/**)|(/trade/**)': {
@@ -13,7 +14,15 @@ module.exports = {
 				'^/basic': ''
 			}
 		},
+		"/cbnew": {
+			target: "localhost:8080", // fat测试环境
+			changeOrigin: true,
+			pathRewrite: {
+				"^/cbnew": "/"
+			}
+		},
 	},
+
 	overLay: false,
 	autoOpenBrowser: false
 }

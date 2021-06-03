@@ -1,11 +1,10 @@
 <template>
-  <div>
-    <layout></layout>
+  <div class="home">
   </div>
 </template>
 <script>
-import layout from 'src/components/layout';
 export default {
+  name:'Home',
   data(){
     return {
 

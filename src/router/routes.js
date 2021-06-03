@@ -2,7 +2,7 @@ import home from './home';
 export default [{
   path: '/',
   redirect: {
-    name: 'Home'
+    name: 'Login'
   }
 },
   ...home
