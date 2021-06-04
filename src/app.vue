@@ -1,14 +1,15 @@
 <template>
 	<div>
     <transition name="fadeIn">
-      <template v-if="$route.meta.keepAlive">
-        <keep-alive >
-          <router-view></router-view>
-        </keep-alive>
-      </template>
-      <template v-else>
-        <router-view></router-view>
-      </template>
+      <router-view></router-view>
+<!--      <template v-if="$route.meta.keepAlive">-->
+<!--        <keep-alive >-->
+<!--          <router-view></router-view>-->
+<!--        </keep-alive>-->
+<!--      </template>-->
+<!--      <template v-else>-->
+<!--        <router-view></router-view>-->
+<!--      </template>-->
     </transition>
 	</div>
 </template>

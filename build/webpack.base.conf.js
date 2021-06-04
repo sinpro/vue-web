@@ -1,4 +1,5 @@
-const  {assets,hashLen,srcPath,limit,publicPath,rootPath,mockPath} = require('../config');
+/* eslint-disable */
+const { assets, hashLen, srcPath, limit, publicPath, rootPath, mockPath} = require('../config');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -7,13 +8,8 @@ function resolve(dir) {
 }
 
 module.exports = {
-  entry  : {
-    index:`${srcPath}/main.js`  // 主模块
-  },
-  output : {
-    path      : rootPath,
-    publicPath: publicPath,
-    filename  : `${assets}/js/[name].js?v=[chunkhash:${hashLen}]`
+  entry : {
+    index: [`${srcPath}/main.js`] // 主模块
   },
   module : {
     rules: [{
@@ -33,12 +29,12 @@ module.exports = {
         formatter: require('eslint-friendly-formatter')
       },
       include: [resolve('src'), resolve('test')]
-    }, {
+    },{
       test   : /\.(eot|ttf|otf|woff2?)(\?\S*)?$/,
       loader : 'url-loader',
       options: {
         limit: limit,
-        name : `${assets}/fonts/[name].[ext]?v=[hash:${hashLen}]`
+        name : `${assets}/style/fonts/[name].[ext]?v=[hash:${hashLen}]`
       }
     }, {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -46,20 +42,22 @@ module.exports = {
         loader : 'url-loader',
         options: {
           limit: limit,
-          name : `${assets}/images/[name].[ext]?v=[hash:${hashLen}]`
+          name : `${assets}/images/[name].[ext]?v=[hash:${hashLen}]`,
+          esModule: false
         }
       }
     }, {
       test   : /\.(js|jsx)$/,
-      include: [srcPath,mockPath],
+      // vue-virtual-scroller 重新babel转化，本插件对es6语法的不完全
+      include: [srcPath, mockPath, path.join(__dirname, '../node_modules/vue-virtual-scroller')],
       use    : {
-        loader:'babel-loader',
-        options:{
-          plugins:[
+        loader: 'babel-loader',
+        options: {
+          plugins: [
             require.resolve('babel-plugin-transform-vue-jsx'),
-          ]
+          ],
         }
-      }
+      },
     }, {
       test   : /\.ejs/,
       loader : 'ejs-loader',
@@ -69,19 +67,19 @@ module.exports = {
       }
     }]
   },
-  plugins:[
-    // new webpack.ProvidePlugin({
-    //   jquery:"jquery",
-    //   $:'jquery'
-    // })
+  plugins: [
+    //   new webpack.ProvidePlugin({
+    //     jquery: "jquery",
+    //     $: "jquery"
+    //   })
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/),
   ],
-  externals:{
-    jquery:'jQuery',
-    ENV_CONFIG:'ENV_CONFIG'
+  externals: {
+    jquery: 'jQuery',
+    ENV_CONFIG: 'ENV_CONFIG'
   },
   resolve: {
-    extensions: ['.js', '.vue', '.scss', '.css', '.json','.jsx'],
+    extensions: ['.js', '.vue', '.scss', '.css', '.json', '.jsx'],
     alias     : {
       'components': `${srcPath}/components`,
       'directives': `${srcPath}/directives`,
@@ -94,8 +92,10 @@ module.exports = {
       'src'       : srcPath,
       'vue$'      : 'vue/dist/vue.esm.js',
       'variable$' : `${srcPath}/style/variables/system-variable.scss`,
-      'moment'    : path.resolve(process.cwd(),'node_modules','moment'),
-      'api'       : `${srcPath}/api`,
+      'moment'    : path.resolve(process.cwd(), 'node_modules', 'moment'),
+      'columns'   : `${srcPath}/colums`,
+      'apis'       : `${srcPath}/apis`,
+      'common'       : `${srcPath}/common`,
     }
   }
 };

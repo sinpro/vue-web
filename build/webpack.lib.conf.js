@@ -25,17 +25,17 @@ module.exports = {
     	{
 	      	test   : /\.(eot|ttf|otf|woff2?)(\?\S*)?$/,
 	      	loader : 'url-loader'
-	    }, 
+	    },
 	    {
 	      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
 	      use : {
-	        loader : 'url-loader'
-	      }
+	        loader : 'url-loader',
+				}
 	    },
 	    {
 	      	test   : /\.js$/,
 	      	use : 'babel-loader'
-	    }, 
+	    },
 	    {
 	      test   : /\.scss$/,  // creates style nodes from JS strings | translates CSS into CommonJS | compiles Sass to CSS
 	      use    : [

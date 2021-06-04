@@ -24,7 +24,8 @@
   </div>
 </template>
 <script>
-import api  from 'src/apis/common';
+import api  from 'apis/common';
+import { mapGetters, mapMutations } from "vuex";
 export default {
   name:"Login",
   data(){
@@ -70,13 +71,13 @@ export default {
       }
     }
   },
-  components:{
-
-  },
   mounted(){
     // console.log(api.loginApi,'api')
   },
   methods: {
+    ...mapMutations([
+      "setUserMenus",
+    ]),
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -90,7 +91,7 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     },
-    loginSub(data){
+    loginSub(data){ // 登录提交
       const params = {
         account:data.account,
         pass:data.pass, // 密码
@@ -100,13 +101,27 @@ export default {
           ({ data = {}, errorCode = '', errorMessage = '响应失败' }) => {
             if (errorCode === '000000') {
               console.log(data,666)
-              this.$router.push('/home')
+              this.queryMenus();
             } else {
               this.$message.error(errorMessage);
             }
           }
       );
     },
+    queryMenus(){
+      api.getMenus({}).then(
+          ({ data = {}, errorCode = '', errorMessage = '响应失败' }) => {
+            if (errorCode === '000000') {
+              const { menuList } = data;
+              // 数据太大，需要freeze一下，否则耗性能
+              this.setUserMenus(Object.freeze(menuList || []));
+              this.$router.push('/home')
+            } else {
+              this.$message.error(errorMessage);
+            }
+          }
+      );
+    }
   }
 }
 </script>

@@ -4,7 +4,7 @@ const host = {
 	dev: 'http://www.baidu.com'
 };
 module.exports = {
-	token:'56665656xxxxx',
+	token:'11223234567888771000',
 	port: 8080,
 	proxy: {
 		'(/basic/**)|(/permission/**)|(/trade/**)': {

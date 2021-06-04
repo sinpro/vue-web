@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const InsertHtmlSiteConfigPlugin = require('./webpack.config.plugin');
 
-const systemConfig = require('../config/system.config');
+const envConfig = require('../config/envConfig');
 const baseConfig = require('./webpack.base.conf');
 
 const { srcPath, assets, postcssLoaderOptions } = require('../config');
@@ -81,7 +81,7 @@ module.exports = merge(baseConfig, {
     // 自定义html插件处理系统常量配置
     new InsertHtmlSiteConfigPlugin({
       variableKey: 'ENV_CONFIG',
-      variableValue: systemConfig.dev||{}
+      variableValue: envConfig.dev||{}
     }),
     new vueLoaderPlugin(),
     // 配置环境变量 开发环境

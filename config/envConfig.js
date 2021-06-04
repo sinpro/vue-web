@@ -1,4 +1,4 @@
-var systemConfig = {
+var envConfig = {
   /* =============================== 本地开发环境配置 ============================== */
   dev: {
     base_url: 'dev',
@@ -16,4 +16,4 @@ var systemConfig = {
     base_url: 'prod',
   },
 }
-module.exports = systemConfig;
+module.exports = envConfig;

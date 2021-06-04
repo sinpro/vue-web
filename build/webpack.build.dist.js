@@ -14,7 +14,7 @@ const {
 } = require('clean-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const InsertHtmlSiteConfigPlugin = require('./webpack.config.plugin');
-const systemConfig = require('../config/system.config');
+const envConfig = require('../config/envConfig');
 const { assets, srcPath, hashLen, postcssLoaderOptions, imagesPublicPath, publicPath, dllStaticList } = require('../config');
 const NODE_ENV = process.env.NODE_ENV;	// node环境配置   production|development|...
 const NODE_MODE = process.env.NODE_MODE;	// node打包环境配置 dev|fat|uat|prod|...
@@ -194,7 +194,7 @@ const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, 
     new InsertHtmlSiteConfigPlugin({
       nodeMode: NODE_MODE,  // 当前的环境
       variableKey: 'ENV_CONFIG',
-      variableValue: systemConfig[`${NODE_MODE}`]||{}
+      variableValue: envConfig[`${NODE_MODE}`]||{}
     }),
     // 清理删除上一次打包文件
     new CleanWebpackPlugin({

@@ -31,7 +31,6 @@ export default {
   },
   props:['menuList'],
   mounted(){
-    console.log(this.menuList,222)
   },
   methods: {
 
