@@ -5,7 +5,7 @@
 
 html {
   font-size: 12px; // 网页基础字体大小
-  width:100%;    
+  width:100%;
   min-width: 1200px;
 }
 body {
@@ -156,6 +156,22 @@ $spacing-sizes: (
       }
     }
   }
+}
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  width: .1rem;
+  height: .1rem;
+  background: #fff;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  background-color: rgba(50,50,50,.1);
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: .05rem;
+  background: #ccc;
 }
 
 .fadeIn-enter{opacity: 0;}

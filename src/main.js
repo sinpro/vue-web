@@ -10,6 +10,7 @@ Vue.use(ElementUI);
 
 // css入口
 import './style/index.scss';
+console.log(ENV_CONFIG,'000000')
 
 const root = document.createElement('div');
 document.body.appendChild(root);

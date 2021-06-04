@@ -24,11 +24,11 @@
 ├── -build/			    //构建目录
 ├── -cofig/ 		    //项目配置
 ├── -src/
+├── -mock/				//mock数据
 │   ├── -components/	//全局组件
 │   ├── -directives/	//指令
 │   ├── -filters/		//过滤器
-│   ├── -il8n/ 			//多语言
-│   ├── -mock/			//mock数据
+│   ├── -il8n/ 			//多语言		
 │   ├── -mixins/		//混合
 │   ├── -modules/		//模块依赖
 │   ├── -router/		//路由相关
@@ -75,7 +75,7 @@
 > [版本号-类型-提交人]:提交描述
 ```
 feature: 新功能
-fix: 新功能
+fix: 新页面
 docs: 改动文档
 style: 格式化代码
 refactor: 重构代码

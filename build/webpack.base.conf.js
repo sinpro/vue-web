@@ -1,5 +1,6 @@
 const  {assets,hashLen,srcPath,limit,publicPath,rootPath,mockPath} = require('../config');
 const path = require('path');
+const webpack = require('webpack');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -7,7 +8,6 @@ function resolve(dir) {
 
 module.exports = {
   entry  : {
-    // index: ["babel-polyfill",`${srcPath}/bankMain.js`]  // 主模块
     index:`${srcPath}/main.js`  // 主模块
   },
   output : {
@@ -74,6 +74,7 @@ module.exports = {
     //   jquery:"jquery",
     //   $:'jquery'
     // })
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/),
   ],
   externals:{
     jquery:'jQuery',
@@ -93,7 +94,8 @@ module.exports = {
       'src'       : srcPath,
       'vue$'      : 'vue/dist/vue.esm.js',
       'variable$' : `${srcPath}/style/variables/system-variable.scss`,
-      'moment'    : path.resolve(process.cwd(),'node_modules','moment')
+      'moment'    : path.resolve(process.cwd(),'node_modules','moment'),
+      'api'       : `${srcPath}/api`,
     }
   }
 };

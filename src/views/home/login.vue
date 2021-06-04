@@ -74,7 +74,7 @@ export default {
 
   },
   mounted(){
-    console.log(api.loginApi,'api')
+    // console.log(api.loginApi,'api')
   },
   methods: {
     submitForm(formName) {

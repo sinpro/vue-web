@@ -18,7 +18,7 @@ export default [
     import ('src/views/home/index.vue'),
   meta: {
     title: '首页',
-    keepAlive: false,
+    keepAlive: true,
     requireAuth: true,
     roles: ['admin', 'editor'],
   }
