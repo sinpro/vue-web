@@ -131,6 +131,19 @@ export default {
       //filter: progid:DXImageTransform.Microsoft.gradient(GradientType=270deg, startColorstr=#C6AB75 0%, endColorstr=#E8D2A2 100%);
       color:#fff;
     }
+    /deep/.el-submenu{
+      .el-submenu__icon-arrow{
+        margin-top:-3px;
+      }
+    }
+    /deep/.el-menu-item{
+      span{
+        word-wrap: break-word;
+        word-break: break-all;
+        display: inline-block;
+        line-height: 23px;
+      }
+    } 
   }
 }
 </style>

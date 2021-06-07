@@ -7,7 +7,6 @@ export default [
         require.ensure(
           [],
           () => resolve(require('views/home/login.vue')),
-          'Login'
         ),
     meta: {
       title: '登录',
@@ -23,7 +22,6 @@ export default [
     require.ensure(
       [],
       () => resolve(require('views/home/index.vue')),
-      'Home'
     ),
   meta: {
     title: '首页',

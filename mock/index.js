@@ -1,10 +1,31 @@
 import Mock from 'mockjs';
-import common from './common';
-// const common = require('./common');
-// const mocks = common;
-  // .concat(common);
+import common from './common'; // 公共mock数据
+import home from './home'; // 首页
+import accountManagement from './accountManagement'; // 账户管理
+import paymentSettlement from './paymentSettlement'; // 转账汇款
+import issueAndReceive from './issueAndReceive'; // 代发代收
+import investmentFinancing from './investmentFinancing'; // 投资理财
+import billBusiness from './billBusiness'; // 票据业务
+import internationalBusiness from './internationalBusiness'; // 国际业务
+import groupBusiness from './groupBusiness'; // 集团业务
+import financingLoan from './financingLoan'; // 融资贷款
+import characteristicService from './characteristicService'; // 特色服务
+import cashManagement from './cashManagement'; // 现金管理
+import moreFeatures from './moreFeatures'; // 更多功能
 const mocks=[
-  ...common
+  ...common,
+  ...home, // 首页
+  ...accountManagement, // 账户管理
+  ...paymentSettlement, //转账汇款
+  ...issueAndReceive, // 代发代收
+  ...investmentFinancing, //投资理财
+  ...billBusiness, // 票据业务
+  ...internationalBusiness, //国际业务
+  ...groupBusiness, // 集团业务
+  ...financingLoan, //融资贷款
+  ...characteristicService, // 特色服务
+  ...cashManagement, //现金管理
+  ...moreFeatures, // 更多功能
 ]
 export function mockXHR(){
     Mock.XHR.prototype.proxy_send=Mock.XHR.prototype.send;
@@ -38,4 +59,3 @@ export function mockXHR(){
 }
   
 export default mocks;
-// module.exports = mocks;

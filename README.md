@@ -75,7 +75,7 @@
 > [版本号-类型-提交人]:提交描述
 ```
 feature: 新功能
-fix: 新页面
+fix: 修改的文件
 docs: 改动文档
 style: 格式化代码
 refactor: 重构代码
