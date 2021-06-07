@@ -7,12 +7,11 @@
           :class="[{'act':nav.id===getUserMenusAct},'fll','cursorPot']" 
           v-for="nav in getUserMenus" 
           :key="nav.id" 
-          @click="switchClickNav(nav)"
+          @click.stop="()=>{nav.name==='首页'?$router.push('/home'):null}"
           @mouseover="switchOverNav(nav)"
           @mouseleave="switchLeaveNav(nav)"
         >
           <span>{{nav.name}}</span>
-          <!-- v-show="nav.name === hoverMenu&&nav.children.length>0&&isScroll&&nav.name!=='首页'" -->
           <div 
             class="bank-header-nav-open" 
             v-show="nav.name === hoverMenu&&nav.children.length>0&&isScroll&&nav.name!=='首页'"
@@ -30,6 +29,7 @@
                   <p 
                     v-for="openChild in openTit.children"
                     :key="openChild.id"
+                    @click="switchClickNav(nav,openChild)"
                   >
                   {{openChild.name}}
                   </p>
@@ -44,12 +44,11 @@
 </template>
 <script>
 import { mapGetters,mapMutations } from 'vuex';
+import {getActiveClickArr} from 'utils';
 export default {
   name:'bankHeader',
   data(){
     return {
-      currentNav:'1',
-      navList:[],
       hoverMenu:'', // 鼠标滑上去的菜单名称
       isScroll:true, //监听是否滚动
     }
@@ -57,11 +56,9 @@ export default {
   computed: {
     ...mapGetters([
       "getUserMenus",
-      "getUserMenusAct"
+      "getUserMenusAct",
+      "getBreadcrumb"
     ]),
-  },
-  components:{
-
   },
   mounted(){
     console.log(this.getUserMenus,this.getUserMenusAct,'0987')
@@ -72,35 +69,27 @@ export default {
   methods:{
     ...mapMutations([
       "setSliderMenus",
-      "setUserMenusAct"
+      "setUserMenusAct",
+      "setSliderMenusAct",
+      "setBreadcrumb"
     ]),
-    switchClickNav(data){
-      console.log(data,'0000')
-      this.setSliderMenus(Object.freeze(data || []));
-      // this.currentNav=data.id;
-      this.setUserMenusAct(data.id);
-      if(data.children&&data.children.length>0){
-        this.$router.push(data.children[0].path)
-      }else{
-        this.$router.push(data.path)
-      }
+    switchClickNav(dataAll,dataCurrent,){
+      // console.log([dataAll],dataCurrent,'0000')
+      this.hoverMenu='';
+      this.setSliderMenus(Object.freeze(dataAll || []));
+      this.setSliderMenusAct(dataCurrent.id);
+      this.setBreadcrumb(getActiveClickArr(dataCurrent.id,[dataAll]))
+      console.log(this.getBreadcrumb[0].id,'999')
+      this.setUserMenusAct(this.getBreadcrumb[0].id)
+      this.$router.push(dataCurrent.path)
     },
-    switchOverNav(data,event){
-      console.log(data)
+    switchOverNav(data){
       this.isScroll=true;
       this.hoverMenu = data.name;
     },
     switchLeaveNav(data){
       this.hoverMenu = "";
-    },
-    // stopPropagation(e) {  
-    //     e = e || window.event;  
-    //     if(e.stopPropagation) { //W3C阻止冒泡方法  
-    //         e.stopPropagation();  
-    //     } else {  
-    //         e.cancelBubble = true; //IE阻止冒泡方法  
-    //     }  
-    // }
+    }
   }
 }
 </script>
@@ -135,11 +124,11 @@ export default {
             margin: 0 auto;
             padding: 16px;
             background: #fff;
-           
             ol{
               li{
-                float: left;
                 word-break:break-all;
+                display: inline-block;
+                vertical-align: top;
                 label{
                   display: inline-block;
                   color: #000000;

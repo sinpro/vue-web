@@ -58,3 +58,29 @@ export function safeSetLocalStorage(name='', defaultVal=''){
   }
   localStorage.setItem(name, safeValue)
 }
+/**
+ * 获取对应选中的当前侧边栏项的所有节点
+ * @param id 当前传入的id
+ * @param arr 当前的整条数组
+ * @param concatArr 默认为空，不用传
+ */
+//
+export const getActiveClickArr=(id='',arr=[],concatArr=[])=>{
+  for (let i = 0; i < arr.length; i++) {
+    let currentArr = concatArr.concat();
+    currentArr.push(arr[i]);
+    if (id&&arr[i].id === id) {
+      return currentArr;
+    }
+    if (arr[i].children && arr[i].children.length > 0) {
+      let resultArr = getActiveClickArr(
+          id,
+          arr[i].children,
+          currentArr
+      );
+      if (resultArr) {
+        return resultArr;
+      }
+    }
+  }
+}

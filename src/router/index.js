@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
   }
 })
 router.afterEach((to) => {
-  console.log('afterEach',to)
+  // console.log('afterEach',to)
   // const path = (to.path || '').replace(/^\//, '');
   // document.body.setAttribute('data-root', path.split('/').join('-'));
 

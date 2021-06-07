@@ -3,7 +3,7 @@
     <el-row>
     <el-col :span="24">
       <el-menu
-          :default-active="defaultActive"
+          :default-active="getSliderMenusAct"
           :default-openeds="defaultOpeneds"
           :unique-opened="true"
           class="el-menu-vertical-demo"
@@ -11,7 +11,7 @@
           @close="handleClose"
           @select="handleSelect"
       >
-          <silderMenu :menuList="menuList"></silderMenu>
+          <silderMenu :menuList="getSliderMenus.children"></silderMenu>
       </el-menu>
     </el-col>
     </el-row>
@@ -19,104 +19,112 @@
 </template>
 <script>
 import silderMenu from './silderMenu';
+import { mapGetters,mapMutations } from 'vuex';
+import {getActiveClickArr} from 'utils';
 export default {
   data(){
     return {
-      menuLists:[
-        {
-          name:'导航1',
-          id:'1',
-          icon:'el-icon-location',
-          children:[
-            {
-              name:'导航1-1',
-              id:'1-1',
-              icon:'el-icon-location',
-              children:[
-                {
-                  name:'导航1-1-1',
-                  id:'1-1-1',
-                  icon:'el-icon-location',
-                },
-                {
-                  name:'导航1-1-2',
-                  id:'1-1-2',
-                  icon:'el-icon-location',
-                },
-                {
-                  name:'导航1-1-3',
-                  id:'1-1-3',
-                  icon:'el-icon-location',
-                },
-              ]
-            },
-          ]
-        },
-        {
-          name:'导航2',
-          id:'2',
-          icon:'el-icon-location',
-          children:[
-            {
-              name:'导航2-1',
-              id:'2-1',
-              icon:'el-icon-location',
-            },
-            {
-              name:'导航2-2',
-              id:'2-2',
-              icon:'el-icon-location',
-            },
-            {
-              name:'导航2-3',
-              id:'2-3',
-              icon:'el-icon-location',
-            },
-            {
-              name:'导航2-4',
-              id:'2-4',
-              icon:'el-icon-location',
-            },
-          ]
-        },
-        {
-          name:'导航3',
-          id:'3',
-          icon:'el-icon-location',
-          children:[]
-        },
-      ],
-      breadcrumbList: [], // 面包屑
+      // menuLists:[
+      //   {
+      //     name:'导航1',
+      //     id:'1',
+      //     icon:'el-icon-location',
+      //     children:[
+      //       {
+      //         name:'导航1-1',
+      //         id:'1-1',
+      //         icon:'el-icon-location',
+      //         children:[
+      //           {
+      //             name:'导航1-1-1',
+      //             id:'1-1-1',
+      //             icon:'el-icon-location',
+      //           },
+      //           {
+      //             name:'导航1-1-2',
+      //             id:'1-1-2',
+      //             icon:'el-icon-location',
+      //           },
+      //           {
+      //             name:'导航1-1-3',
+      //             id:'1-1-3',
+      //             icon:'el-icon-location',
+      //           },
+      //         ]
+      //       },
+      //     ]
+      //   },
+      //   {
+      //     name:'导航2',
+      //     id:'2',
+      //     icon:'el-icon-location',
+      //     children:[
+      //       {
+      //         name:'导航2-1',
+      //         id:'2-1',
+      //         icon:'el-icon-location',
+      //       },
+      //       {
+      //         name:'导航2-2',
+      //         id:'2-2',
+      //         icon:'el-icon-location',
+      //       },
+      //       {
+      //         name:'导航2-3',
+      //         id:'2-3',
+      //         icon:'el-icon-location',
+      //       },
+      //       {
+      //         name:'导航2-4',
+      //         id:'2-4',
+      //         icon:'el-icon-location',
+      //       },
+      //     ]
+      //   },
+      //   {
+      //     name:'导航3',
+      //     id:'3',
+      //     icon:'el-icon-location',
+      //     children:[]
+      //   },
+      // ],
+      defaultOpeneds:[],//
     }
-  },
-  props:{
-    menuList:{
-      type:Array,
-      default:()=>[]
-    },
-    defaultActive:{
-      type:String,
-      default:''
-    },
-    defaultOpeneds:{
-      type:Array,
-      default:()=>[]
-    },
   },
   components:{
     silderMenu
   },
+  computed: {
+    ...mapGetters([
+      "getSliderMenus",
+      "getSliderMenusAct",
+      "getBreadcrumb"
+    ]),
+  },
   mounted() {
   },
   methods: {
+    ...mapMutations([
+      "setSliderMenus",
+      "setUserMenusAct",
+      "setSliderMenusAct",
+      "setBreadcrumb"
+    ]),
     handleOpen(key, keyPath) {
-      this.$emit('handleOpen',{key,keyPath})
+      console.log(key, keyPath)
     },
     handleClose(key, keyPath) {
-      this.$emit('handleClose',{key,keyPath})
+       console.log(key, keyPath)
     },
     handleSelect(key, keyPath) {
-      this.$emit('handleSelect',{key,keyPath})
+      console.log(key, keyPath)
+      this.setSliderMenusAct(key)
+      const breadcrumbList=getActiveClickArr(key,[this.getSliderMenus]);
+      this.setBreadcrumb(breadcrumbList)
+      const keys = this.getBreadcrumb.map(item => item.id);
+      const path = this.getBreadcrumb.map(item => item.path);
+      this.defaultOpeneds=keys;
+      this.$router.push(path[path.length - 1]);
     },
   }
 }

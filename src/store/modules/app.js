@@ -24,6 +24,11 @@ function setSliderMenusAct(state, sliderMenusAct = '') {
   safeSetLocalStorage('sliderMenusAct', sliderMenusAct);
   state.sliderMenusAct = sliderMenusAct;
 }
+// 设置面包屑列表
+function setBreadcrumb(state, breadcrumb = []) {
+  safeSetLocalStorage('breadcrumb', breadcrumb);
+  state.breadcrumb = breadcrumb;
+}
 export default {
   // namespaced: true, // 模块化局部命名
   state: {
@@ -34,6 +39,7 @@ export default {
     userMenusAct:safeGetLocalStorage('userMenusAct', ''),// 菜单选中
     sliderMenus:safeGetLocalStorage('sliderMenus', []),// 侧边栏菜单
     sliderMenusAct:safeGetLocalStorage('sliderMenusAct', ''),// 侧边栏选中
+    breadcrumb:safeGetLocalStorage('breadcrumb', ''),// 面包屑列表
   },
   mutations: {
     setLoading(state, boolean) {
@@ -47,6 +53,7 @@ export default {
     setUserMenusAct,
     setSliderMenus,
     setSliderMenusAct,
+    setBreadcrumb,
 
   },
   actions: {
@@ -78,6 +85,9 @@ export default {
     },
     getSliderMenusAct(state) {
       return state.sliderMenusAct;
+    },
+    getBreadcrumb(state) {
+      return state.breadcrumb;
     },
   }
 };

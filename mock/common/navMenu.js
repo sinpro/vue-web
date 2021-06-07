@@ -11,14 +11,14 @@ export default [
   {id:'10',name:'集团业务',path:'',children:[]},
   {id:'11',name:'现金管理',path:'',children:[
       {
-        id:'gjzi',name:'资金归集',path:'',
+        id:'zjgj',name:'资金归集',path:'',
         children:[
-          {id:'gjzi_yecx',name:'资金归集余额查询',path:'/cashManagement/cashSweep/balanceQuery'},
-          {id:'gjzi_mxcx',name:'资金归集明细查询',path:'/cashManagement/cashSweep/detailedQuery'},
-          {id:'gjzi_lxcx',name:'资金归集利息查询',path:'/cashManagement/cashSweep/interestQuery'},
-          {id:'gjzi_lxfp',name:'资金归集利息分配',path:'/cashManagement/cashSweep/interestDistribution'},
-          {id:'gjzi_shxb',name:'资金归集上划下拨',path:'/cashManagement/cashSweep/upStrokeAllocatio'},
-          {id:'gjzi_ldzf',name:'资金归集联动支付',path:'/cashManagement/cashSweep/linkagePayment'}
+          {id:'zjgj_yecx',name:'资金归集余额查询',path:'/cashManagement/cashSweep/balanceQuery'},
+          {id:'zjgj_mxcx',name:'资金归集明细查询',path:'/cashManagement/cashSweep/detailedQuery'},
+          {id:'zjgj_lxcx',name:'资金归集利息查询',path:'/cashManagement/cashSweep/interestQuery'},
+          {id:'zjgj_lxfp',name:'资金归集利息分配',path:'/cashManagement/cashSweep/interestDistribution'},
+          {id:'zjgj_shxb',name:'资金归集上划下拨',path:'/cashManagement/cashSweep/upStrokeAllocation'},
+          {id:'zjgj_ldzf',name:'资金归集联动支付',path:'/cashManagement/cashSweep/linkagePayment'}
         ]
       },
       {
