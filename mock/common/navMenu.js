@@ -11,17 +11,18 @@ export default [
   {id:'10',name:'集团业务',path:'',children:[]},
   {id:'11',name:'现金管理',path:'',children:[
       {
-        id:'gjzi',name:'资金归集',path:'/cashManagement/interBankService',
+        id:'gjzi',name:'资金归集',path:'',
         children:[
-          {id:'gjzi_yecx',name:'资金归集余额查询',path:''},
-          {id:'gjzi_mxcx',name:'资金归集明细查询',path:''},
-          {id:'gjzi_lxcx',name:'资金归集利息查询',path:''},
-          {id:'gjzi_shxb',name:'资金归集余额查询',path:''},
-          {id:'gjzi_ldzf',name:'资金归集余额查询',path:''}
+          {id:'gjzi_yecx',name:'资金归集余额查询',path:'/cashManagement/cashSweep/balanceQuery'},
+          {id:'gjzi_mxcx',name:'资金归集明细查询',path:'/cashManagement/cashSweep/detailedQuery'},
+          {id:'gjzi_lxcx',name:'资金归集利息查询',path:'/cashManagement/cashSweep/interestQuery'},
+          {id:'gjzi_lxfp',name:'资金归集利息分配',path:'/cashManagement/cashSweep/interestDistribution'},
+          {id:'gjzi_shxb',name:'资金归集上划下拨',path:'/cashManagement/cashSweep/upStrokeAllocatio'},
+          {id:'gjzi_ldzf',name:'资金归集联动支付',path:'/cashManagement/cashSweep/linkagePayment'}
         ]
       },
       {
-        id:'djzb',name:'多级账簿',path:'/cashManagement/multiLevelAccountBook',
+        id:'djzb',name:'多级账簿',path:'',
         children:[
           {id:'djzb_xecx',name:'多级账簿限额查询',path:''},
           {
@@ -65,7 +66,7 @@ export default [
         ]
       },
       {
-        id:'jszjc',name:'节税资金池',path:'/cashManagement/cashSweep',
+        id:'jszjc',name:'节税资金池',path:'',
         children:[
           {
             id:'jszjc_yecx',name:'横向扫款余额查询',path:'',
@@ -92,7 +93,7 @@ export default [
         ]
       },
       {
-        id:'xnzjc',name:'虚拟资金池',path:'/cashManagement/interbankCapitalPool',
+        id:'xnzjc',name:'虚拟资金池',path:'',
         children:[
           {
             id:'xnzjc_dbyecx',name:'VCP担保额度查询',path:'',
@@ -120,7 +121,7 @@ export default [
         ]
       },
       {
-        id:'khfu',name:'跨行服务',path:'/cashManagement/groupCapitalPool',
+        id:'khfu',name:'跨行服务',path:'',
         children:[
           {
             id:'khfu_xxcx',name:'他行账户信息查询',path:'',
@@ -140,7 +141,7 @@ export default [
         ]
       },
       {
-        id:'khzjc',name:'跨行资金池',path:'/cashManagement/cashSweep',
+        id:'khzjc',name:'跨行资金池',path:'',
         children:[
           {id:'khzjc_yecx',name:'跨行归集余额查询',path:''},
           {id:'khzjc_lscx',name:'跨行归集流水查询',path:''},

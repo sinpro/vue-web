@@ -51,7 +51,6 @@ export default {
       currentNav:'1',
       navList:[],
       hoverMenu:'', // 鼠标滑上去的菜单名称
-      leaveMenusTimer: null,
       isScroll:true, //监听是否滚动
     }
   },
@@ -89,20 +88,19 @@ export default {
     switchOverNav(data,event){
       console.log(data)
       this.isScroll=true;
-      this.hoverMenu=data.name;
-      this.stopPropagation(this);
+      this.hoverMenu = data.name;
     },
     switchLeaveNav(data){
-      this.hoverMenu='';
+      this.hoverMenu = "";
     },
-    stopPropagation(e) {  
-        e = e || window.event;  
-        if(e.stopPropagation) { //W3C阻止冒泡方法  
-            e.stopPropagation();  
-        } else {  
-            e.cancelBubble = true; //IE阻止冒泡方法  
-        }  
-    }
+    // stopPropagation(e) {  
+    //     e = e || window.event;  
+    //     if(e.stopPropagation) { //W3C阻止冒泡方法  
+    //         e.stopPropagation();  
+    //     } else {  
+    //         e.cancelBubble = true; //IE阻止冒泡方法  
+    //     }  
+    // }
   }
 }
 </script>
@@ -127,15 +125,17 @@ export default {
           margin: 0 auto;
           position: fixed;
           left: 0;
-          top: 120px;
+          top: 112px;
+          padding-top:8px;
           z-index: 9;
           cursor: default;
-          box-shadow: #22B678;
+          background: rgba(255,255,255,0);
           &-content{
             width: 1200px;
             margin: 0 auto;
             padding: 16px;
             background: #fff;
+           
             ol{
               li{
                 float: left;
