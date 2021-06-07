@@ -1,5 +1,6 @@
 {
   "presets":["@babel/preset-env"],
+  "sourceType": "unambiguous",
   "plugins":[
     ["@babel/plugin-transform-runtime",{
       "absoluteRuntime":false,
@@ -7,6 +8,7 @@
       "helpers":true,
       "regenerator":true,
       "useESModules":false
-    }]
+    }
+    ]
   ]
 }

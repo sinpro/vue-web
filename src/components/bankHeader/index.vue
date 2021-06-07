@@ -3,7 +3,7 @@
     <div class="bank-header-search"></div>
     <div class="bank-header-nav">
       <ul class="clearfix">
-        <li :class="[{'act':item.id===currentNav},'fll','cursorPot']" v-for="item in getUserMenus" :key="item.id" @click="switchNav(item)">
+        <li :class="[{'act':item.id===getUserMenusAct},'fll','cursorPot']" v-for="item in getUserMenus" :key="item.id" @click="switchNav(item)">
           {{item.name}}
         </li>
       </ul>
@@ -22,23 +22,26 @@ export default {
   },
   computed: {
     ...mapGetters([
-      "getUserMenus"
+      "getUserMenus",
+      "getUserMenusAct"
     ]),
   },
   components:{
 
   },
   mounted(){
-    console.log(this.getUserMenus,'0987')
+    console.log(this.getUserMenus,this.getUserMenusAct,'0987')
   },
   methods:{
     ...mapMutations([
       "setSliderMenus",
+      "setUserMenusAct"
     ]),
     switchNav(data){
-      console.log(data)
+      console.log(data,'0000')
       this.setSliderMenus(Object.freeze(data || []));
-      this.currentNav=data.id;
+      // this.currentNav=data.id;
+      this.setUserMenusAct(data.id);
       if(data.children&&data.children.length>0){
         this.$router.push(data.children[0].path)
       }else{

@@ -56,9 +56,9 @@ module.exports = merge(baseConfig, {
           css: [
             'vue-style-loader',
             /* 应该不用下面几个loader，待测试 */
-            // 'css-loader',
-            // 'sass-loader',
-            // postcssLoaderOptions,
+            'css-loader',
+            'sass-loader',
+            postcssLoaderOptions,
           ]
         }
       }

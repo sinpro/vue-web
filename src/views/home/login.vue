@@ -24,8 +24,8 @@
   </div>
 </template>
 <script>
-import api  from 'apis/common';
-import { mapGetters, mapMutations } from "vuex";
+import { mapMutations } from "vuex";
+import api from 'apis/common.js';
 export default {
   name:"Login",
   data(){
@@ -77,6 +77,7 @@ export default {
   methods: {
     ...mapMutations([
       "setUserMenus",
+      "setToken"
     ]),
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
@@ -101,6 +102,7 @@ export default {
           ({ data = {}, errorCode = '', errorMessage = '响应失败' }) => {
             if (errorCode === '000000') {
               console.log(data,666)
+              this.setToken(data.token);
               this.queryMenus();
             } else {
               this.$message.error(errorMessage);

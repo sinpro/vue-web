@@ -7,7 +7,11 @@ import store from './store';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
-
+// demo环境
+if(isMockEnv){
+	const mock = require('../mock');
+	mock.mockXHR();
+}
 // css入口
 import './style/index.scss';
 console.log(ENV_CONFIG,'000000')

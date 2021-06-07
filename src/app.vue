@@ -1,7 +1,5 @@
 <template>
-	<div>
-    <transition name="fadeIn">
-      <router-view></router-view>
+<!--    <transition name="fadeIn">-->
 <!--      <template v-if="$route.meta.keepAlive">-->
 <!--        <keep-alive >-->
 <!--          <router-view></router-view>-->
@@ -10,8 +8,9 @@
 <!--      <template v-else>-->
 <!--        <router-view></router-view>-->
 <!--      </template>-->
-    </transition>
-	</div>
+<!--    </transition>-->
+    <router-view />
+
 </template>
 <script>
 export default {

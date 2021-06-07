@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import axios from 'axios';
 import store from '../store';
-// 兼容ie10，promise resolve之后 then不执行的问题
-import MyPromise from 'promise';
+
+import MyPromise from 'promise';// 兼容ie10，promise resolve之后 then不执行的问题
 import { storageLoginStatus } from './index';
 const devConfig = require('../../config/dev.js');
 const isDev = process.env.NODE_ENV;
@@ -58,8 +58,6 @@ ajax.interceptors.request.use(
       store.commit('setLoading', true);
     }
     // 请求头设置token
-    // config.headers.token =
-    //   'access_token-1074-RdgxHcLtKJfsIF67UFtkQl4dLjVCPPHDOwH-sso.pingan.com';
     config.headers.token = isDev==='development' ? devConfig.token : store.state.app.token;
     // 允许get请求下，可设置请求头
     if (config.method === 'get') {

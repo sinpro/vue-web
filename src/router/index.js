@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 Vue.use(Router);
+import { setSideMenu } from 'utils/routerIntercept';
 
 // 解决侧边栏重复点击报错问题
 const originalPush = Router.prototype.push;
@@ -18,13 +19,20 @@ const router = new Router({
   routes
 })
 router.beforeEach((to, from, next) => {
-  console.log(to,store.state.app.token)
-  next()
+  const nick = store.state.app.token;
+  if (!nick && to.path !== '/login') {
+    next({
+      path: '/login'
+    })
+  } else {
+    next()
+    // setSideMenu(to, from, router, next);
+  }
 })
 router.afterEach((to) => {
   console.log('afterEach',to)
-  const path = (to.path || '').replace(/^\//, '');
-  document.body.setAttribute('data-root', path.split('/').join('-'));
+  // const path = (to.path || '').replace(/^\//, '');
+  // document.body.setAttribute('data-root', path.split('/').join('-'));
 
 })
 export default router;

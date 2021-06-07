@@ -1,7 +1,7 @@
 const Mock = require('mockjs');
 const { createReturnData } = require('../untils');
 import navMenu from './navMenu';
-module.exports = [
+export default  [
   /**
    * [描述] 【xxx】登录接口
    * */

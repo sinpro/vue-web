@@ -3,14 +3,15 @@
     <el-row>
     <el-col :span="24">
       <el-menu
-          default-active="1-1-1"
-          :default-openeds="[menuList[0].id,menuList[0].children[0].id]"
+          :default-active="defaultActive"
+          :default-openeds="defaultOpeneds"
+          :unique-opened="true"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
           @select="handleSelect"
       >
-          <silderMenu :menuList="getSliderMenus.children"></silderMenu>
+          <silderMenu :menuList="menuList"></silderMenu>
       </el-menu>
     </el-col>
     </el-row>
@@ -18,11 +19,10 @@
 </template>
 <script>
 import silderMenu from './silderMenu';
-import { mapGetters,mapMutations } from 'vuex';
 export default {
   data(){
     return {
-      menuList:[
+      menuLists:[
         {
           name:'导航1',
           id:'1',
@@ -85,74 +85,38 @@ export default {
           icon:'el-icon-location',
           children:[]
         },
-      ]
+      ],
+      breadcrumbList: [], // 面包屑
     }
   },
-  computed: {
-    ...mapGetters([
-      "getSliderMenus"
-    ]),
+  props:{
+    menuList:{
+      type:Array,
+      default:()=>[]
+    },
+    defaultActive:{
+      type:String,
+      default:''
+    },
+    defaultOpeneds:{
+      type:Array,
+      default:()=>[]
+    },
   },
   components:{
     silderMenu
   },
   mounted() {
-    let aaa=[this.getSliderMenus];
-    console.log(this.getFirstActiveArr(aaa), 666)
   },
   methods: {
     handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      this.$emit('handleOpen',{key,keyPath})
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      this.$emit('handleClose',{key,keyPath})
     },
     handleSelect(key, keyPath) {
-      console.log(key,keyPath);
-
-      // console.log(this.getFirstActiveArr(this.getSliderMenus),'pppp')
-    },
-    getFirstActiveArr(orignArr, path) {
-      //获取首次进来的数据列表
-      path = path || [];
-      var that = this;
-      for (var i = 0; i < orignArr.length; i++) {
-        var tmpPath = path.concat();
-        tmpPath.push(orignArr[i]);
-        if (!orignArr[i].children.length) {
-          return tmpPath;
-        }
-        if (orignArr[i].children && orignArr[i].children.length > 0) {
-          var findResult = that.getFirstActiveArr(
-              orignArr[i].children,
-              tmpPath
-          );
-          if (findResult) {
-            return findResult;
-          }
-        }
-      }
-    },
-    getActiveClickArr(bsnCode, orignArr, path=[]) {
-      //获取对应bsnCode的数据列表
-      var that = this;
-      for (var i = 0; i < orignArr.length; i++) {
-        var tmpPath = path.concat();
-        tmpPath.push(orignArr[i]);
-        if (orignArr[i].bsnCode === bsnCode) {
-          return tmpPath;
-        }
-        if (orignArr[i].children && orignArr[i].children.length > 0) {
-          var findResult = that.getActiveClickArr(
-              bsnCode,
-              orignArr[i].children,
-              tmpPath
-          );
-          if (findResult) {
-            return findResult;
-          }
-        }
-      }
+      this.$emit('handleSelect',{key,keyPath})
     },
   }
 }
@@ -164,6 +128,7 @@ export default {
      border-right: none!important;
     /deep/.el-menu-item.is-active{
       background-image: linear-gradient(270deg, #C6AB75 0%, #E8D2A2 100%);
+      //filter: progid:DXImageTransform.Microsoft.gradient(GradientType=270deg, startColorstr=#C6AB75 0%, endColorstr=#E8D2A2 100%);
       color:#fff;
     }
   }

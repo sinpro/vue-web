@@ -1,6 +1,8 @@
+/* eslint-disable */
 const vueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
+// const utils = require('./utils');
 const path = require('path');
 const baseConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -15,10 +17,17 @@ const {
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const InsertHtmlSiteConfigPlugin = require('./webpack.config.plugin');
 const envConfig = require('../config/envConfig');
-const { assets, srcPath, hashLen, postcssLoaderOptions, imagesPublicPath, publicPath, dllStaticList } = require('../config');
+const {
+  assets,
+  srcPath,
+  hashLen,
+  postcssLoaderOptions,
+  imagesPublicPath,
+  publicPath,
+  dllStaticList
+} = require('../config');
 const NODE_ENV = process.env.NODE_ENV;	// node环境配置   production|development|...
 const NODE_MODE = process.env.NODE_MODE;	// node打包环境配置 dev|fat|uat|prod|...
-
 let bundleAnalyzerPlugin = {
   plugins: process.env.NODE_TYPE === 'watch' ? [new BundleAnalyzerPlugin()]: []
 };
@@ -26,7 +35,6 @@ let bundleAnalyzerPlugin = {
 const dllStaticPlugins = {
   plugins: []
 };
-
 for(let dll in dllStaticList){
   dllStaticPlugins.plugins.push(new webpack.DllReferencePlugin({
     context: path.resolve(__dirname),
@@ -44,8 +52,7 @@ const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, 
     rules: [{
       test: /\.scss$/,
       include: srcPath,
-      use: [
-        {
+      use: [{
           loader: MiniCssExtractPlugin.loader,
           options: {
             publicPath: imagesPublicPath
@@ -62,8 +69,7 @@ const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, 
       ]
     }, {
       test: /\.css$/,
-      use: [
-        {
+      use: [{
           loader: MiniCssExtractPlugin.loader,
           options: {
             publicPath: imagesPublicPath
@@ -77,13 +83,11 @@ const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, 
       include: srcPath,
       use: [
         'thread-loader',
-        'cache-loader',
-        {
+        'cache-loader',{
           loader: 'vue-loader',
           options: {
             loaders: {
-              css: [
-                {
+              css: [{
                   loader: MiniCssExtractPlugin.loader,
                   options: {
                     publicPath: imagesPublicPath
@@ -230,6 +234,5 @@ const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, 
   devtool: false,   // #eval-source-map
   stats: 'errors-only'
 });
-
 module.exports = webpackConfig;
 

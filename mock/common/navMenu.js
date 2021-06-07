@@ -10,7 +10,14 @@ export default [
   {id:'9',name:'国际业务',path:'',children:[]},
   {id:'10',name:'集团业务',path:'',children:[]},
   {id:'11',name:'现金管理',path:'',children:[
-      {id:'11-1',name:'跨行服务',path:'/cashManagement/interBankService'},
+      {id:'11-1',name:'跨行服务',path:'/cashManagement/interBankService',children:[
+          {id:'11-1-1',name:'跨行服务1',path:'/cashManagement/interBankService',children:[
+              {id:'11-1-1-1',name:'跨行服务11',path:'/cashManagement/interBankService'}
+            ]},
+          {id:'11-1-2',name:'跨行服务2',path:'/cashManagement/interBankService'},
+          {id:'11-1-3',name:'跨行服务3',path:'/cashManagement/interBankService'},
+        ]
+      },
       {id:'11-2',name:'多级账簿',path:'/cashManagement/multiLevelAccountBook'},
       {id:'11-3',name:'资金归集',path:'/cashManagement/cashSweep'},
       {id:'11-4',name:'跨行资金池',path:'/cashManagement/interbankCapitalPool'},

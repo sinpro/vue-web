@@ -1,7 +1,6 @@
 export default [
   { //跨行服务
     path: '/cashManagement/interBankService',
-    name: 'InterBankService',
     component: resolve =>
     require.ensure(
       [],
@@ -16,7 +15,6 @@ export default [
     }
   },{ //多级账簿
     path: '/cashManagement/multiLevelAccountBook',
-    name: 'MultiLevelAccountBook',
     component: resolve =>
       require.ensure(
         [],
@@ -31,7 +29,6 @@ export default [
     }
   },{ //资金归集
   path: '/cashManagement/cashSweep',
-  name: 'CashSweep',
   component: resolve =>
     require.ensure(
       [],
@@ -46,7 +43,6 @@ export default [
   }
 },{ //跨行资金池
     path: '/cashManagement/interbankCapitalPool',
-    name: 'InterbankCapitalPool',
     component:
   resolve =>
     require.ensure(
@@ -62,7 +58,6 @@ export default [
     }
   },{ //集团资金池
   path: '/cashManagement/groupCapitalPool',
-  name: 'GroupCapitalPool',
   component: resolve =>
     require.ensure(
       [],
@@ -77,7 +72,6 @@ export default [
   }
 },{ //节税资金池
   path: '/cashManagement/taxSavingFundPool',
-  name: 'TaxSavingFundPool',
   component: resolve =>
     require.ensure(
       [],

@@ -1,22 +1,14 @@
 import home from './home'; // 首页登录
 import internationalBusiness from './cashManagement';
 import cashManagement from './cashManagement';
-export default [{
-  path: '/',
-  redirect: {
-    name: 'Login'
-  }
-},
-  ...home, // 首页模块
+
+// 不需要动态判断权限
+const constantRoutes = [
   {
-    path: '/layout',
-    name: 'layout',
-    component: () =>
-      import ('src/components/layout'),
-    children:[
-      ...internationalBusiness, // 国际业务
-      ...cashManagement, //现金管理
-    ]
+    path: '/',
+    redirect: {
+      path: '/home'
+    }
   },
   {
     path: '/serverError',
@@ -29,3 +21,23 @@ export default [{
     component: () => import('src/views/errorPage'),
   },
 ];
+// 需求动态判断权限并通过addRoutes 动态添加的页面
+const asyncRoutes = [
+  ...home, // 首页模块
+  {
+    path: '/layout',
+    name: 'layout',
+    component: resolve =>
+      require.ensure(
+        [],
+        () => resolve(require('src/components/layout')),
+        'Layout'
+      ),
+    children:[
+      ...internationalBusiness, // 国际业务
+      ...cashManagement, //现金管理
+    ]
+  },
+];
+const routes = [...constantRoutes, ...asyncRoutes];
+export default [...routes];

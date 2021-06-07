@@ -10,6 +10,7 @@
 </template>
 <script>
 import bankHeader from 'src/components/bankHeader';
+import { mapGetters,mapMutations } from 'vuex';
 export default {
   name:'Home',
   data(){
@@ -20,9 +21,21 @@ export default {
   components:{
     bankHeader
   },
-  mounted(){
-
+  computed: {
+    ...mapGetters([
+      "getUserMenus",
+      "getUserMenusAct"
+    ]),
   },
+  mounted(){
+    this.setUserMenusAct(this.getUserMenus[0].id);
+  },
+  methods:{
+    ...mapMutations([
+      "setSliderMenus",
+      "setUserMenusAct"
+    ]),
+  }
 }
 </script>
 <style lang="scss" scoped>

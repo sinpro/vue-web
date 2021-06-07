@@ -1,4 +1,4 @@
-const host = {
+var host = {
 	sat: 'http://www.baidu.com',
 	uat: 'http://www.baidu.com',
 	dev: 'http://www.baidu.com'

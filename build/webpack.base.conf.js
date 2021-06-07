@@ -1,12 +1,18 @@
 /* eslint-disable */
-const { assets, hashLen, srcPath, limit, publicPath, rootPath, mockPath} = require('../config');
+const {
+  assets,
+  hashLen,
+  srcPath,
+  limit,
+  publicPath,
+  rootPath,
+  mockPath
+} = require('../config');
 const path = require('path');
 const webpack = require('webpack');
-
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
-
 module.exports = {
   entry : {
     index: [`${srcPath}/main.js`] // 主模块
@@ -57,7 +63,7 @@ module.exports = {
             require.resolve('babel-plugin-transform-vue-jsx'),
           ],
         }
-      },
+      }
     }, {
       test   : /\.ejs/,
       loader : 'ejs-loader',
@@ -90,12 +96,12 @@ module.exports = {
       'utils'     : `${srcPath}/utils`,
       'views'     : `${srcPath}/views`,
       'src'       : srcPath,
+      'apis'      : `${srcPath}/apis`,
+      'common'    : `${srcPath}/common`,
       'vue$'      : 'vue/dist/vue.esm.js',
       'variable$' : `${srcPath}/style/variables/system-variable.scss`,
       'moment'    : path.resolve(process.cwd(), 'node_modules', 'moment'),
-      'columns'   : `${srcPath}/colums`,
-      'apis'       : `${srcPath}/apis`,
-      'common'       : `${srcPath}/common`,
+      'columns'   : `${srcPath}/colums`
     }
   }
 };

@@ -1,4 +1,4 @@
-import ajax from 'src/utils/ajax';
+import ajax from 'utils/ajax';
 export default {
   // 【xxx】登录接口
   loginApi: data => {

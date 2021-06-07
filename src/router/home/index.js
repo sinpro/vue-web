@@ -2,8 +2,13 @@ export default [
   { //登录
     path: '/login',
     name: 'Login',
-    component: () =>
-      import ('src/views/home/Login.vue'),
+    component:
+      resolve =>
+        require.ensure(
+          [],
+          () => resolve(require('views/home/login.vue')),
+          'Login'
+        ),
     meta: {
       title: '登录',
       keepAlive: false,
@@ -14,8 +19,12 @@ export default [
   { //首页
   path: '/home',
   name: 'Home',
-  component: () =>
-    import ('src/views/home/index.vue'),
+  component: resolve =>
+    require.ensure(
+      [],
+      () => resolve(require('views/home/index.vue')),
+      'Home'
+    ),
   meta: {
     title: '首页',
     keepAlive: true,
