@@ -7,7 +7,7 @@
           :class="[{'act':nav.id===getUserMenusAct},'fll','cursorPot']" 
           v-for="nav in getUserMenus" 
           :key="nav.id" 
-          @click.stop="()=>{nav.name==='首页'?$router.push('/home'):null}"
+          @click="switchClickNav(nav)"
           @mouseover="switchOverNav(nav)"
           @mouseleave="switchLeaveNav(nav)"
         >
@@ -29,7 +29,7 @@
                   <p 
                     v-for="openChild in openTit.children"
                     :key="openChild.id"
-                    @click="switchClickNav(nav,openChild)"
+                    @click="openChildClickNav(nav,openChild)"
                   >
                   {{openChild.name}}
                   </p>
@@ -44,7 +44,7 @@
 </template>
 <script>
 import { mapGetters,mapMutations } from 'vuex';
-import {getActiveClickArr} from 'utils';
+import {getFirstActiveArr,getActiveClickArr} from 'utils';
 export default {
   name:'bankHeader',
   data(){
@@ -73,23 +73,50 @@ export default {
       "setSliderMenusAct",
       "setBreadcrumb"
     ]),
-    switchClickNav(dataAll,dataCurrent,){
-      // console.log([dataAll],dataCurrent,'0000')
-      this.hoverMenu='';
-      this.setSliderMenus(Object.freeze(dataAll || []));
-      this.setSliderMenusAct(dataCurrent.id);
-      this.setBreadcrumb(getActiveClickArr(dataCurrent.id,[dataAll]))
-      console.log(this.getBreadcrumb[0].id,'999')
-      this.setUserMenusAct(this.getBreadcrumb[0].id)
-      this.$router.push(dataCurrent.path)
-    },
-    switchOverNav(data){
+    // 鼠标移上去的菜单
+    switchOverNav(data){ 
       this.isScroll=true;
       this.hoverMenu = data.name;
     },
+    // 鼠标离开后的菜单
     switchLeaveNav(data){
       this.hoverMenu = "";
-    }
+    },
+    // 菜单点击事件
+    switchClickNav(dataAll){
+      if(dataAll.name==='首页'){
+        this.$router.push('/home');
+      }else{
+        this.setSliderMenus(Object.freeze(dataAll || []));
+        this.setBreadcrumb(getFirstActiveArr([dataAll]))
+        this.setUserMenusAct(this.getBreadcrumb[0].id)
+        // console.log(this.getBreadcrumb,222)
+        if(this.getBreadcrumb[this.getBreadcrumb.length-1].children&&this.getBreadcrumb[this.getBreadcrumb.length-1].children.length>0){
+          this.setSliderMenusAct(this.getBreadcrumb[this.getBreadcrumb.length-1].children[0].id);
+          this.$router.push(this.getBreadcrumb[this.getBreadcrumb.length-1].children[0].path);
+          console.log(this.getBreadcrumb[this.getBreadcrumb.length-1],111)
+        }else{
+          this.setSliderMenusAct(this.getBreadcrumb[this.getBreadcrumb.length-1].id);
+          this.$router.push(this.getBreadcrumb[this.getBreadcrumb.length-1].path)
+        }
+      }
+    },
+    // 点击展开的菜单
+    openChildClickNav(dataAll,dataCurrent){
+      this.hoverMenu='';
+      this.setSliderMenus(Object.freeze(dataAll || []));
+      this.setBreadcrumb(getActiveClickArr(dataCurrent.id,[dataAll]))
+      this.setUserMenusAct(this.getBreadcrumb[0].id)
+      // console.log(this.getBreadcrumb,'111')
+      if(this.getBreadcrumb[this.getBreadcrumb.length-1].children&&this.getBreadcrumb[this.getBreadcrumb.length-1].children.length>0){
+        this.setSliderMenusAct(this.getBreadcrumb[this.getBreadcrumb.length-1].children[0].id);
+        this.$router.push(this.getBreadcrumb[this.getBreadcrumb.length-1].children[0].path);
+        // console.log(this.getBreadcrumb[this.getBreadcrumb.length-1],111)
+      }else{
+        this.setSliderMenusAct(dataCurrent.id);
+        this.$router.push(dataCurrent.path)
+      }
+    },
   }
 }
 </script>

@@ -59,6 +59,29 @@ export function safeSetLocalStorage(name='', defaultVal=''){
   localStorage.setItem(name, safeValue)
 }
 /**
+ * 获取首次进来的数据列表
+ * @param arr 当前的整条数组
+ * @param concatArr 默认为空，不用传
+ */
+//
+export const getFirstActiveArr=(arr,concatArr=[])=> {
+  for (let i = 0; i < arr.length; i++) {
+    let currentArr = concatArr.concat();
+    currentArr.push(arr[i]);
+    if (arr[i].children && arr[i].children.length > 0) {
+      let resultArr = getFirstActiveArr(
+        arr[i].children,
+        currentArr
+      );
+      if (resultArr) {
+        return resultArr;
+      }
+    }else{
+      return currentArr;
+    }
+  }
+}
+/**
  * 获取对应选中的当前侧边栏项的所有节点
  * @param id 当前传入的id
  * @param arr 当前的整条数组
