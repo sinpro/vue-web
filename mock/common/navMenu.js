@@ -150,26 +150,44 @@ export default [
     ]},
     {id:'93',name:'保理业务',path:'',children:[]},
   ]},
-  {id:'10',name:'特色服务',path:'',children:[]},
-  
+  {id:'10',name:'特色服务',path:'',children:[
+    {id:'x1',name:'电力缴费',path:'',children:[]},
+    {id:'x2',name:'财税库银',path:'',children:[]},
+    {id:'x3',name:'非税缴费',path:'',children:[]},
+    {id:'x4',name:'预售房资金管理',path:'',children:[
+      {id:'x41',name:'缴款确认',path:'',children:[]},
+      {id:'x42',name:'划拨退款',path:'',children:[]},
+    ]},
+    {id:'x5',name:'投招标保证金',path:'',children:[
+      {id:'x51',name:'非订单模式支付',path:'',children:[]},
+      {id:'x52',name:'订单模式支付',path:'',children:[]},
+      {id:'x53',name:'保证金退款',path:'',children:[]},
+      {id:'x54',name:'退款失败清单',path:'',children:[]},
+    ]},
+    {id:'x6',name:'缴费记录',path:'',children:[]},
+  ]},
   {id:'11',name:'现金管理',path:'',children:[
-      {
-        id:'zjgj',name:'资金归集',path:'',
+      {id:'zjgj',name:'资金归集',path:'',
         children:[
-          {id:'zjgj_yecx',name:'资金归集余额查询',path:'/cashManagement/cashSweep/balanceQuery'},
-          {id:'zjgj_mxcx',name:'资金归集明细查询',path:'/cashManagement/cashSweep/detailedQuery'},
-          {id:'zjgj_lxcx',name:'资金归集利息查询',path:'/cashManagement/cashSweep/interestQuery'},
-          {id:'zjgj_lxfp',name:'资金归集利息分配',path:'/cashManagement/cashSweep/interestDistribution'},
-          {id:'zjgj_shxb',name:'资金归集上划下拨',path:'/cashManagement/cashSweep/upStrokeAllocation'},
-          {id:'zjgj_ldzf',name:'资金归集联动支付',path:'/cashManagement/cashSweep/linkagePayment'}
+          // {id:'zjgj_yecx',name:'资金归集余额查询',path:'/cashManagement/cashSweep/balanceQuery'},
+          // {id:'zjgj_mxcx',name:'资金归集明细查询',path:'/cashManagement/cashSweep/detailedQuery'},
+          // {id:'zjgj_lxcx',name:'资金归集利息查询',path:'/cashManagement/cashSweep/interestQuery'},
+          // {id:'zjgj_lxfp',name:'资金归集利息分配',path:'/cashManagement/cashSweep/interestDistribution'},
+          // {id:'zjgj_shxb',name:'资金归集上划下拨',path:'/cashManagement/cashSweep/upStrokeAllocation'},
+          // {id:'zjgj_ldzf',name:'资金归集联动支付',path:'/cashManagement/cashSweep/linkagePayment'}
+          {id:'zjgj_yecx',name:'资金归集余额查询',path:''},
+          {id:'zjgj_mxcx',name:'资金归集明细查询',path:''},
+          {id:'zjgj_lxcx',name:'资金归集利息查询',path:''},
+          {id:'zjgj_lxfp',name:'资金归集利息分配',path:''},
+          {id:'zjgj_shxb',name:'资金归集上划下拨',path:''},
+          {id:'zjgj_ldzf',name:'资金归集联动支付',path:''}
         ]
       },
       {
         id:'djzb',name:'多级账簿',path:'',
         children:[
           {id:'djzb_xecx',name:'多级账簿限额查询',path:''},
-          {
-            id:'djzb_xesz',name:'多级账簿限额设置',path:'',
+          {id:'djzb_xesz',name:'多级账簿限额设置',path:'',
             children:[
               {id:'djzb_xesz_xz',name:'多级账簿限额新增',path:'',},
               {id:'djzb_xesz_xg',name:'多级账簿限额修改',path:'',}
@@ -177,30 +195,26 @@ export default [
           },
           {id:'djzb_yecx',name:'多级账簿余额查询',path:''},
           {id:'djzb_mxcx',name:'多级账簿明细查询',path:''},
-          {
-            id:'djzb_mxtz',name:'多级账簿明细调账',path:'',
+          {id:'djzb_mxtz',name:'多级账簿明细调账',path:'',
             children:[
               {id:'djzb_mxtz_lr',name:'录入页面',path:'',},
               {id:'djzb_mxtz_qr',name:'确认页面',path:'',}
             ]
           },
           {id:'djzb_lxcx',name:'资金归集利息查询',path:''},
-          {
-            id:'djzb_lxfp',name:'资金归集利息分配',path:'',
+          {id:'djzb_lxfp',name:'资金归集利息分配',path:'',
             children:[
               {id:'djzb_lxfp_lr',name:'录入页面',path:'',},
               {id:'djzb_lxfp_qr',name:'确认页面',path:'',}
             ]
           },
-          {
-            id:'djzb_yezz',name:'多级账簿余额转账',path:'',
+          {id:'djzb_yezz',name:'多级账簿余额转账',path:'',
             children:[
               {id:'djzb_yezz_lr',name:'录入页面',path:'',},
               {id:'djzb_yezz_qr',name:'确认页面',path:'',}
             ]
           },
-          {
-            id:'djzb_dwzf',name:'多级账簿对外支付',path:'',
+          {id:'djzb_dwzf',name:'多级账簿对外支付',path:'',
             children:[
               {id:'djzb_dwzf_lr',name:'录入页面',path:'',},
               {id:'djzb_dwzf_qr',name:'确认页面',path:'',}
@@ -208,54 +222,32 @@ export default [
           }
         ]
       },
-      {
-        id:'jszjc',name:'节税资金池',path:'',
+      {id:'jszjc',name:'节税资金池',path:'',
         children:[
-          {
-            id:'jszjc_yecx',name:'横向扫款余额查询',path:'',
-          },
-          {
-            id:'jszjc_lscx',name:'横向扫款流水查询',path:'',
-          },
-          {
-            id:'jszjc_lxcx',name:'横向扫款利息查询',path:'',
-          },
-          {
-            id:'jszjc_lxfp',name:'横向扫款利息分配',path:'',
+          {id:'jszjc_yecx',name:'横向扫款余额查询',path:'',},
+          {id:'jszjc_lscx',name:'横向扫款流水查询',path:'',},
+          {id:'jszjc_lxcx',name:'横向扫款利息查询',path:'',},
+          {id:'jszjc_lxfp',name:'横向扫款利息分配',path:'',
             children:[
               {id:'jszjc_lxfp_lr',name:'录入页面',path:'',},
               {id:'jszjc_lxfp_qr',name:'确认页面',path:'',}
             ]
           },
-          {
-            id:'jszjc_ldzf',name:'横向扫款联动支付',path:'',
-            children:[
-              {id:'jszjc_ldzf_lr',name:'录入页面',path:'',}
-            ]
-          },
+          {id:'jszjc_ldzf',name:'横向扫款联动支付',path:'',children:[]},
         ]
       },
-      {
-        id:'xnzjc',name:'虚拟资金池',path:'',
+      {id:'xnzjc',name:'虚拟资金池',path:'',
         children:[
-          {
-            id:'xnzjc_dbyecx',name:'VCP担保额度查询',path:'',
-          },
-          {
-            id:'xnzjc_zyyecx',name:'VCP质押余额查询',path:'',
-          },
-          {
-            id:'xnzjc_lscx',name:'VCP质押流水查询',path:'',
-          },
-          {
-            id:'xnzjc_rc',name:'活期质押入池',path:'',
+          {id:'xnzjc_dbyecx',name:'VCP担保额度查询',path:'',},
+          {id:'xnzjc_zyyecx',name:'VCP质押余额查询',path:'',},
+          {id:'xnzjc_lscx',name:'VCP质押流水查询',path:'',},
+          {id:'xnzjc_rc',name:'活期质押入池',path:'',
             children:[
               {id:'xnzjc_rc_lr',name:'录入页面',path:'',},
               {id:'xnzjc_rc_qr',name:'确认页面',path:'',}
             ]
           },
-          {
-            id:'xnzjc_cc',name:'活期解押出池',path:'',
+          {id:'xnzjc_cc',name:'活期解押出池',path:'',
             children:[
               {id:'xnzjc_cc_lr',name:'录入页面',path:'',},
               {id:'xnzjc_cc_qr',name:'确认页面',path:'',}
@@ -263,55 +255,29 @@ export default [
           },
         ]
       },
-      {
-        id:'khfu',name:'跨行服务',path:'',
+      {id:'khfu',name:'跨行服务',path:'',
         children:[
-          {
-            id:'khfu_xxcx',name:'他行账户信息查询',path:'',
-          },
-          {
-            id:'khfu_yecx',name:'他行账户余额查询',path:'',
-          },
-          {
-            id:'khfu_mxcx',name:'他行账户明细查询',path:'',
-          },
-          {
-            id:'khfu_dwzf',name:'他行账户对外支付',path:'',
-            children:[
-              {id:'khfu_dwzf_lr',name:'录入页面',path:'',}
-            ]
-          },
+          {id:'khfu_xxcx',name:'他行账户信息查询',path:'',},
+          {id:'khfu_yecx',name:'他行账户余额查询',path:'',},
+          {id:'khfu_mxcx',name:'他行账户明细查询',path:'',},
+          {id:'khfu_dwzf',name:'他行账户对外支付',path:'',children:[]},
         ]
       },
-      {
-        id:'khzjc',name:'跨行资金池',path:'',
+      {id:'khzjc',name:'跨行资金池',path:'',
         children:[
           {id:'khzjc_yecx',name:'跨行归集余额查询',path:''},
           {id:'khzjc_lscx',name:'跨行归集流水查询',path:''},
           {id:'khzjc_lxcx',name:'跨行归集利息查询',path:''},
         ]
       },
-      {
-        id:'pjc',name:'票据池',path:'/cashManagement/taxSavingFundPool',
+      {id:'pjc',name:'票据池',path:'/cashManagement/taxSavingFundPool',
         children:[
           {id:'pjc_edcx',name:'票据池额度查询',path:''},
           {id:'pjc_xxcx',name:'票据池信息查询',path:''},
           {id:'pjc_ccrc',name:'票据出池入池',path:''},
-          {
-            id:'pjc_rc',name:'票据入池',path:'',
-            children:[
-              {id:'pjc_rc_qr',name:'确认页面',path:'',}
-            ]
-          },
-          {
-            id:'pjc_cc',name:'票据出池',path:'',
-            children:[
-              {id:'pjc_cc_qr',name:'确认页面',path:'',}
-            ]
-          },
-          {
-            id:'pjc_bzjzq',name:'保证金支取',path:'',
-            children:[
+          {id:'pjc_rc',name:'票据入池',path:'',children:[]},
+          {id:'pjc_cc',name:'票据出池',path:'',children:[]},
+          {id:'pjc_bzjzq',name:'保证金支取',path:'',children:[
               {id:'pjc_bzjzq_lr',name:'录入页面',path:'',},
               {id:'pjc_bzjzq_qr',name:'确认页面',path:'',}
             ]
@@ -321,5 +287,32 @@ export default [
      
     ]
   },
-  {id:'12',name:'更多功能',path:'',children:[]},
+  {id:'12',name:'更多功能',path:'',children:[
+    {id:'y1',name:'费用套餐',path:'',children:[]},
+    {id:'y2',name:'预约服务',path:'',children:[
+      {id:'y21',name:'预约开户',path:'',children:[]},
+      {id:'y22',name:'大额取现预约',path:'',children:[]},
+    ]},
+    {id:'y3',name:'企业管理台',path:'',children:[
+      {id:'y31',name:'企业信息管理',path:'',children:[]},
+      {id:'y32',name:'企业操作员管理',path:'',children:[]},
+      {id:'y33',name:'限额设置',path:'',children:[]},
+      {id:'y34',name:'汇款用途维护',path:'',children:[]},
+      {id:'y35',name:'扣款账户管理',path:'',children:[]},
+      {id:'y36',name:'操作员日志查询',path:'',children:[]},
+      {id:'y37',name:'短信通',path:'',children:[]},
+    ]},
+    {id:'y4',name:'B2B网关支付',path:'',children:[
+      {id:'y41',name:'支付明细查询',path:'',children:[]},
+      {id:'y42',name:'网上支付开通/管理',path:'',children:[]},
+    ]},
+    {id:'y5',name:'交易管理',path:'',children:[
+      {id:'y51',name:'交易查询',path:'',children:[]},
+      {id:'y52',name:'审批中心',path:'',children:[]},
+    ]},
+    {id:'y6',name:'银企直联',path:'',children:[
+      {id:'x61',name:'下载中心',path:'',children:[]},
+      {id:'x62',name:'证书管理',path:'',children:[]},
+    ]},
+  ]},
 ]
