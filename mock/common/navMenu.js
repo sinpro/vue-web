@@ -46,18 +46,112 @@ export default [
       {id:'514',name:'风险评估',path:'/investmentFinancing/financialProducts/riskAassessment',children:[]}]
     },
     {id:'52',name:'存款业务',path:'',children:[
-      
       {id:'521',name:'定期存款',path:'/investmentFinancing/depositBusiness/fixedDeposit',children:[]},
       {id:'522',name:'通知存款',path:'/investmentFinancing/depositBusiness/noticeDeposit',children:[]},
       {id:'523',name:'大额存单',path:'/investmentFinancing/depositBusiness/certificatesOfDeposit',children:[]},
       {id:'524',name:'存款明细',path:'/investmentFinancing/depositBusiness/depositDetail',children:[]}]
     },
   ]},
-  {id:'6',name:'票据业务',path:'',children:[]},
-  {id:'7',name:'融资贷款',path:'',children:[]},
-  {id:'8',name:'特色服务',path:'',children:[]},
-  {id:'9',name:'国际业务',path:'',children:[]},
-  {id:'10',name:'集团业务',path:'',children:[]},
+  {id:'6',name:'票据业务',path:'',children:[
+    {id:'61',name:'出票',path:'',children:[
+        {id:'611',name:'出票申请',path:'',children:[]},
+        {id:'612',name:'待出票清单',path:'',children:[]},
+      ]
+    },
+    {id:'62',name:'承兑',path:'',children:[
+        {id:'611',name:'提示承兑申请',path:'',children:[]},
+        {id:'612',name:'提示承兑撤销',path:'',children:[]},
+      ]
+    },
+    {id:'63',name:'撤票',path:'',children:[]},
+    {id:'64',name:'提示收票',path:'',children:[
+        {id:'641',name:'提示收票申请',path:'',children:[]},
+        {id:'642',name:'提示收票撤销',path:'',children:[]},
+      ]
+    },
+    {id:'65',name:'贴现',path:'',children:[
+        {id:'651',name:'贴现申请',path:'',children:[]},
+        {id:'652',name:'贴现撤销',path:'',children:[]},
+      ]
+    },
+    {id:'66',name:'背书转让',path:'',children:[
+        {id:'661',name:'背书转让申请',path:'',children:[]},
+        {id:'662',name:'背书转让撤销',path:'',children:[]},
+      ]
+    },
+    {id:'67',name:'追索/清偿',path:'',children:[
+        {id:'671',name:'追索申请',path:'',children:[]},
+        {id:'672',name:'追索申请撤销',path:'',children:[]},
+        {id:'673',name:'同意清偿',path:'',children:[]},
+        {id:'674',name:'同意清偿撤销',path:'',children:[]},
+      ]
+    },
+    {id:'68',name:'待签收业务',path:'',children:[
+        {id:'681',name:'提示收票签收',path:'',children:[]},
+        {id:'682',name:'背书转让签收',path:'',children:[]},
+        {id:'683',name:'质押签收',path:'',children:[]},
+        {id:'684',name:'解质押签收',path:'',children:[]},
+        {id:'685',name:'同意清偿签收',path:'',children:[]},
+      ]
+    },
+    {id:'69',name:'查询',path:'',children:[
+        {id:'691',name:'票据交易查询',path:'',children:[]},
+        {id:'692',name:'票据信息查询',path:'',children:[]},
+        {id:'693',name:'票据结果查询',path:'',children:[]},
+      ]
+    },
+    {id:'60',name:'收款人维护',path:'',children:[]},
+  ]},
+  {id:'7',name:'国际业务',path:'',children:[
+    {id:'71',name:'外汇汇款',path:'',children:[
+      {id:'711',name:'外汇汇款申请',path:'',children:[]},
+    ]},
+    {id:'72',name:'外汇牌价查询',path:'',children:[]},
+    {id:'73',name:'结售汇',path:'',children:[
+      {id:'731',name:'票据交易查询',path:'',children:[]},
+      {id:'732',name:'票据信息查询',path:'',children:[]},
+      
+    ]},
+    {id:'74',name:'国际信用证',path:'',children:[
+      {id:'741',name:'信用证开证',path:'',children:[]},
+      {id:'742',name:'信用证改证',path:'',children:[]},
+      {id:'743',name:'承兑/付款/拒付',path:'',children:[]},
+    ]},
+    {id:'75',name:'保证金缴纳',path:'',children:[]},
+    {id:'76',name:'查询',path:'',children:[]},
+  ]},
+  {id:'8',name:'集团业务',path:'',children:[
+    {id:'81',name:'资金上拨',path:'',children:[]},
+    {id:'82',name:'资金下拨',path:'',children:[]},
+    {id:'83',name:'内部划拨',path:'',children:[]},
+    {id:'84',name:'对外付款',path:'',children:[]},
+    {id:'85',name:'自动划拨',path:'',children:[
+      {id:'851',name:'自动划拨计划',path:'',children:[]},
+      {id:'852',name:'划拨计划维护',path:'',children:[]},
+    ]},
+    {id:'86',name:'信息查询',path:'',children:[
+      {id:'861',name:'集团管理查询',path:'',children:[]},
+      {id:'862',name:'分公司账户余额查询',path:'',children:[]},
+      {id:'863',name:'划拨交易查询',path:'',children:[]},
+    ]},
+  ]},
+  {id:'9',name:'融资贷款',path:'',children:[
+    {id:'91',name:'贷款业务',path:'',children:[
+      {id:'911',name:'贷款查询',path:'',children:[]},
+      {id:'912',name:'贷款申请',path:'',children:[]},
+      {id:'913',name:'贷款放款',path:'',children:[]},
+      {id:'914',name:'贷款归还',path:'',children:[]},
+      {id:'915',name:'贷款计算器',path:'',children:[]}
+    ]},
+    {id:'92',name:'保函业务',path:'',children:[
+      {id:'921',name:'保函业务申请',path:'',children:[]},
+      {id:'922',name:'申请进度查询',path:'',children:[]},
+      {id:'923',name:'保函业务查询',path:'',children:[]},
+    ]},
+    {id:'93',name:'保理业务',path:'',children:[]},
+  ]},
+  {id:'10',name:'特色服务',path:'',children:[]},
+  
   {id:'11',name:'现金管理',path:'',children:[
       {
         id:'zjgj',name:'资金归集',path:'',
