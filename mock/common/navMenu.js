@@ -104,21 +104,22 @@ export default [
   ]},
   {id:'7',name:'国际业务',path:'',children:[
     {id:'71',name:'外汇汇款',path:'',children:[
-      {id:'711',name:'外汇汇款申请',path:'',children:[]},
+      {id:'711',name:'外汇汇款申请',path:'/internationalBusiness/foreignExchangeRemittance/foreignExchangeRemittanceApp',children:[]},
     ]},
-    {id:'72',name:'外汇牌价查询',path:'',children:[]},
+    {id:'72',name:'外汇牌价查询',path:'/internationalBusiness/forexListPrice/forexListPrice',children:[]},
+    {id:'7x',name:'汇入汇款确认',path:'/internationalBusiness/remittanceConfirm/remittanceConfirm',children:[]},
     {id:'73',name:'结售汇',path:'',children:[
-      {id:'731',name:'票据交易查询',path:'',children:[]},
-      {id:'732',name:'票据信息查询',path:'',children:[]},
+      {id:'731',name:'结汇',path:'/internationalBusiness/writtenGuarantee/foreignExchangeSettlement',children:[]},
+      {id:'732',name:'购汇',path:'/internationalBusiness/writtenGuarantee/foreignExchangePurchase',children:[]},
       
     ]},
     {id:'74',name:'国际信用证',path:'',children:[
-      {id:'741',name:'信用证开证',path:'',children:[]},
-      {id:'742',name:'信用证改证',path:'',children:[]},
-      {id:'743',name:'承兑/付款/拒付',path:'',children:[]},
+      {id:'741',name:'信用证开证',path:'/internationalBusiness/internationalLC/openInternationalLC',children:[]},
+      {id:'742',name:'信用证改证',path:'/internationalBusiness/internationalLC/updateInternationalLC',children:[]},
+      {id:'743',name:'承兑/付款/拒付',path:'/internationalBusiness/internationalLC/acceptancePaymentDishonor',children:[]},
     ]},
-    {id:'75',name:'保证金缴纳',path:'',children:[]},
-    {id:'76',name:'查询',path:'',children:[]},
+    {id:'75',name:'保证金缴纳',path:'/internationalBusiness/deposit',children:[]},
+    {id:'76',name:'查询',path:'/internationalBusiness/query',children:[]},
   ]},
   {id:'8',name:'集团业务',path:'',children:[
     {id:'81',name:'资金上拨',path:'',children:[]},

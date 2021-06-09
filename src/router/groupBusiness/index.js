@@ -1,4 +1,94 @@
-export default []
+export default [
+    { //资金上拨
+        path: '/groupBusiness/onTheDial',
+        name:'onTheDial',
+        component: () => import('views/groupBusiness/onTheDial/index.vue'),
+        meta: {
+          title: '资金上拨',
+        }
+    },
+    { //资金下拨
+        path: '/groupBusiness/stir',
+        name:'stir',
+        component: () => import('views/groupBusiness/stir/index.vue'),
+        meta: {
+          title: '资金下拨',
+        }
+    },
+    { //内部划拨
+        path: '/groupBusiness/internalTransfer',
+        name:'internalTransfer',
+        component: () => import('views/groupBusiness/internalTransfer/index.vue'),
+        meta: {
+          title: '内部划拨',
+        }
+    },
+    { //对外付款
+        path: '/groupBusiness/foreignPayment',
+        name:'foreignPayment',
+        component: () => import('views/groupBusiness/foreignPayment/index.vue'),
+        meta: {
+          title: '对外付款',
+        }
+    },
+    { //自动划拨-自动划拨计划-资金上划计划设置
+        path: '/groupBusiness/automaticTransfer/automaticTransferPlan/onTheDialSet',
+        name:'onTheDialSet',
+        component: () => import('views/groupBusiness/automaticTransfer/automaticTransferPlan/onTheDialSet.vue'),
+        meta: {
+          title: '资金上划计划设置',
+        }
+    },
+    { //自动划拨-自动划拨计划-资金下拨计划设置
+        path: '/groupBusiness/automaticTransfer/automaticTransferPlan/stirSet',
+        name:'stirSet',
+        component: () => import('views/groupBusiness/automaticTransfer/automaticTransferPlan/stirSet.vue'),
+        meta: {
+          title: '资金下拨计划设置',
+        }
+    },
+    { //自动划拨-划拨计划维护-划拨计划维护
+        path: '/groupBusiness/automaticTransfer/automaticTransferMaintenance',
+        name:'automaticTransferMaintenance',
+        component: () => import('views/groupBusiness/automaticTransfer/automaticTransferMaintenance/info.vue'),
+        meta: {
+          title: '划拨计划维护',
+        }
+    },
+    { //自动划拨-划拨计划维护-划拨计划详情
+        path: '/groupBusiness/automaticTransfer/automaticTransferMaintenance/autoTMInfo',
+        name: 'autoTMInfo',
+        name:'foreignExchangeRemittanceApp',
+        component: () => import('views/groupBusiness/automaticTransfer/automaticTransferMaintenance/info.vue'),
+        meta: {
+          title: '划拨计划详情',
+        }
+    },
+    { //信息查询-集团管理查询
+        path: '/groupBusiness/informationQuery/accountBalanceBranchCompany',
+        name:'accountBalanceBranchCompany',
+        component: '',
+        meta: {
+          title: '集团管理查询',
+        }
+    },
+    { //信息查询-分公司账户余额查询
+        path: 'groupBusiness/informationQuery/accountBalanceBranchCompany',
+        name:'accountBalanceBranchCompany',
+        component: '',
+        meta: {
+          title: '分公司账户余额查询',
+        }
+    },
+    { //信息查询-划拨交易查询
+        path: '/internationalBusiness/foreignExchangeRemittance/foreignExchangeRemittanceApp',
+        name:'foreignExchangeRemittanceApp',
+        component:'',
+        meta: {
+          title: '划拨交易查询',
+        }
+    },
+]
 
 /*
 const recom = {
