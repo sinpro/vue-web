@@ -33,9 +33,9 @@
 import batchInfoFill from "./batchInfoFill";
 import batchSuccess from "./batchSuccess";
 import batchInfoConfirm from "./batchInfoConfirm";
-import stepErrer from "src/components/stepErrer";
+import stepErrer from "components/stepErrer";
 
-import UDialog from "src/components/common/ukDialog/ukDialog";
+import UDialog from "components/common/ukDialog/ukDialog";
 export default {
   components: {
     UDialog,

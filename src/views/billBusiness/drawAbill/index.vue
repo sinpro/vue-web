@@ -26,11 +26,11 @@ export default {
     handleClick() {
       if (this.activeName == "oneStopApply") {
         this.$router.push({
-          path: "/bill/drawAbill/drawAbillApply/oneStopApply",
+          path: "/billBusiness/drawAbill/drawAbillApply/oneStopApply",
         });
       } else {
         this.$router.push({
-          path: "/bill/drawAbill/drawAbillApply/batchApply",
+          path: "/billBusiness/drawAbill/drawAbillApply/batchApply",
         });
       }
     },

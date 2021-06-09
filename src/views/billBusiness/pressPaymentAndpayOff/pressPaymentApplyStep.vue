@@ -26,7 +26,7 @@
 
         <title-bar title="被追索信息录入"></title-bar>
         <el-table :data="tableData" stripe>
-          <el-table-column type="selection" width="80">
+          <el-table-column type="selection" width="104">
             <template slot-scope="scope">
               <el-radio v-model="radio" :label="scope.$index"></el-radio>
             </template>
@@ -46,7 +46,7 @@
     <div v-if="steps == 'infoConfirm'">
       <title-bar title="票据信息确认"></title-bar>
       <el-table :data="tableData" stripe>
-        <el-table-column type="selection" width="80"> </el-table-column>
+        <el-table-column type="selection" width="104"> </el-table-column>
         <el-table-column prop="id" label="票号" width="400"> </el-table-column>
         <el-table-column prop="id" label="票据类型" width="140">
         </el-table-column>
@@ -106,7 +106,7 @@
 </template>
 <script>
 import mathTools from "utils/mathTools.js";
-import auditProcess from "src/components/auditProcess/index.vue";
+import auditProcess from "components/auditProcess/index.vue";
 
 export default {
   components: { auditProcess },

@@ -1,7 +1,7 @@
 <template>
   <div class="drawAbillPayee">
     <el-table :data="tableData" stripe @selection-change="selectionChange">
-      <el-table-column type="selection" width="80"> </el-table-column>
+      <el-table-column type="selection" width="104"> </el-table-column>
       <el-table-column
         prop="id"
         label="收款户名"

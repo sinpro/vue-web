@@ -30,9 +30,9 @@
 export default {
   data() {
     return {
-      formData: "",
-      activeName: "drawAbillPayee",
-      oldqueryDate: "",
+      formData: '',
+      activeName: 'drawAbillPayee',
+      oldqueryDate: ''
     };
   },
   mounted() {
@@ -42,51 +42,51 @@ export default {
   watch: {
     $route() {
       this.activeName = this.$route.name;
-    },
+    }
   },
   methods: {
     goAdd() {
-      if (this.activeName == "drawAbillPayee") {
+      if (this.activeName == 'drawAbillPayee') {
         this.$router.push({
-          path: "/bill/payee/drawAbillPayee/drawAbillAdd",
+          path: '/bill/payee/drawAbillPayee/drawAbillAdd'
         });
       } else {
         this.$router.push({
-          path: "/bill/payee/negotiablityPayee/negotiablityAdd",
+          path: '/bill/payee/negotiablityPayee/negotiablityAdd'
         });
       }
     },
     query() {
       // if (this.oldqueryDate !== this.formData) {
       //   this.oldqueryDate = this.formData;
-        if (this.activeName == "drawAbillPayee") {
-          this.$router.push({
-            path: "/bill/payee/drawAbillPayee/",
-            query: { val: this.formData },
-          });
-        } else {
-          this.$router.push({
-            path: "/bill/payee/negotiablityPayee/",
-            query: { val: this.formData },
-          });
-        }
+      if (this.activeName == 'drawAbillPayee') {
+        this.$router.push({
+          path: '/bill/payee/drawAbillPayee/',
+          query: { val: this.formData }
+        });
+      } else {
+        this.$router.push({
+          path: '/bill/payee/negotiablityPayee/',
+          query: { val: this.formData }
+        });
+      }
       // }
     },
     handleClick() {
       if (this.$route.name !== this.activeName) {
-        this.formData = "";
-        if (this.activeName == "drawAbillPayee") {
+        this.formData = '';
+        if (this.activeName == 'drawAbillPayee') {
           this.$router.push({
-            path: "/bill/payee/drawAbillPayee",
+            path: '/bill/payee/drawAbillPayee'
           });
         } else {
           this.$router.push({
-            path: "/bill/payee/negotiablityPayee",
+            path: '/bill/payee/negotiablityPayee'
           });
         }
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss">

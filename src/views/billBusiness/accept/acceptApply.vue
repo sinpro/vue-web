@@ -10,7 +10,7 @@
         :model="formData"
       >
         <el-form-item label="企业名称:" prop="keyWord">
-          <el-input disabled v-model="formData.keyWord"></el-input>
+          <el-input v-model="formData.keyWord"></el-input>
         </el-form-item>
         <el-form-item label="账号:" prop="bankName">
           <el-select v-model="formData.bankName" placeholder="--请选择--">
@@ -47,7 +47,6 @@
         </el-form-item>
         <el-form-item label="票号:" prop="keyWord">
           <el-input
-            disabled
             v-model="formData.keyWord"
             placeholder="支持模糊查询"
           ></el-input>
@@ -56,14 +55,14 @@
           <el-input
             v-model="formData.minNum"
             placeholder="请输入"
-            class="w140"
+            class="w145"
             @input.native="NumInput"
           ></el-input>
-          <span class="mlr10">~</span>
+          <span class="mlr10 f16">~</span>
           <el-input
             v-model="formData.maxNum"
             placeholder="请输入"
-            class="w140"
+            class="w145"
             @input.native="NumInput"
           ></el-input>
         </el-form-item>
@@ -73,21 +72,21 @@
         <el-button type="primary" @click="search" size="mini">查询</el-button>
       </div>
       <el-table :data="tableData" stripe>
-        <el-table-column type="selection" width="80"> </el-table-column>
-        <el-table-column prop="id" label="票号" width="400"> </el-table-column>
-        <el-table-column prop="id" label="票据类型" width="140">
+        <el-table-column type="selection" width="104"> </el-table-column>
+        <el-table-column prop="id" label="票号" width="364"> </el-table-column>
+        <el-table-column prop="name" label="票据类型" width="144">
         </el-table-column>
-        <el-table-column prop="name" label="出票日期" width="140">
+        <el-table-column prop="code" label="出票日期" width="220">
         </el-table-column>
-        <el-table-column prop="code" label="到期日期" width="140">
+        <el-table-column prop="code1" label="到期日期" width="220">
         </el-table-column>
-        <el-table-column prop="code" label="票据金额(元)" width="140">
+        <el-table-column prop="code2" label="票据金额(元)" width="260">
         </el-table-column>
-        <el-table-column prop="code" label="收款人名称" width="140">
+        <el-table-column prop="code3" label="收款人名称" width="220">
         </el-table-column>
-        <el-table-column prop="code" label="承兑人名称" width="140">
+        <el-table-column prop="code4" label="承兑人名称" width="140">
         </el-table-column>
-        <el-table-column prop="code" label="是否转让" width="140">
+        <el-table-column prop="code5" label="是否转让" width="140">
         </el-table-column>
       </el-table>
       <el-pagination
@@ -106,13 +105,13 @@
       >
       </el-pagination>
       <div class="tc mtb56">
-        <el-button type="primary" @click="">下一步</el-button>
+        <el-button type="primary" @click="step = 2">下一步</el-button>
       </div>
     </div>
     <div v-if="step == 2">
       <title-bar title="确认信息"></title-bar>
       <el-table :data="selectTableData" stripe>
-        <el-table-column type="selection" width="80"> </el-table-column>
+        <el-table-column type="selection" width="104"> </el-table-column>
         <el-table-column prop="id" label="票号" width="400"> </el-table-column>
         <el-table-column prop="id" label="票据类型" width="140">
         </el-table-column>
@@ -130,20 +129,20 @@
         </el-table-column>
       </el-table>
       <div class="tc mtb56">
-        <el-button type="primary" @click="">下一步</el-button>
+        <el-button type="primary" @click="step = 3">下一步</el-button>
       </div>
     </div>
     <div v-if="step == 3">
       <auditProcess :list="list"></auditProcess>
       <div class="tc mtb56">
-        <el-button type="primary" @click="">完成</el-button>
+        <el-button type="primary" @click="step = 1">完成</el-button>
       </div>
     </div>
   </div>
 </template>
 <script>
 import mathTools from "utils/mathTools.js";
-import auditProcess from "src/components/auditProcess/index.vue";
+import auditProcess from "components/auditProcess/index.vue";
 
 export default {
   components: {
@@ -201,8 +200,30 @@ export default {
         },
       ],
       formData: {},
-      tableData: [{}],
-      selectTableData: [],
+      tableData: [
+        {
+          id: "123456789009876543211231256884",
+          name: "银行承兑汇票",
+          code: "2020-02-02 12:00:00",
+          code1: "2020-02-02 12:00:00",
+          code2: "12121212121212121.00",
+          code3: "华为股份有限公司",
+          code4: "华为",
+          code5: "是",
+        },
+      ],
+      selectTableData: [
+        {
+          id: "123456789009876543211231256884",
+          name: "银行承兑汇票",
+          code: "2020-02-02 12:00:00",
+          code1: "2020-02-02 12:00:00",
+          code2: "12121212121212121.00",
+          code3: "华为股份有限公司",
+          code4: "华为",
+          code5: "是",
+        },
+      ],
       currentPage: 0,
       pageSize: 10,
       total: 10,
@@ -230,6 +251,9 @@ export default {
 </script>
 <style lang="scss">
 .acceptApply {
+  .w145 {
+    width: 145px;
+  }
   .cen-form {
     align-items: flex-start;
     margin-top: 35px;

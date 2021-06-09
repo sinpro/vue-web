@@ -1,4 +1,230 @@
-export default []
+export default [
+    { //出票-出票申请
+        path: '/billBusiness/drawAbill/drawAbillApply',
+        name: 'drawAbillApply',
+        redirect: "/billBusiness/drawAbill/drawAbillApply/oneStopApply",
+        component: () => import('views/billBusiness/drawAbill/index.vue'),
+        meta: {
+            title: '出票申请',
+        },
+        children: [
+            {
+                path: '/billBusiness/drawAbill/drawAbillApply/oneStopApply',
+                name: 'oneStopApply',
+                component: () => import('views/billBusiness/drawAbill/oneStop/oneStopApply.vue'),
+                meta: {
+                    title: '单笔申请',
+                },
+            },
+            {
+                path: '/billBusiness/drawAbill/drawAbillApply/batchApply',
+                name: 'batchApply',
+                component: () => import('views/billBusiness/drawAbill/batch/batchApply.vue'),
+                meta: {
+                    title: '批量申请',
+                },
+            },
+        ]
+
+    },
+    { //出票-待出票清单
+        path: '/billBusiness/drawAbill/stayBill',
+        name: 'stayBill',
+        component: () => import('views/billBusiness/drawAbill/stayBill/stayBill.vue'),
+        meta: {
+            title: '待出票清单',
+        }
+    },
+    { //承兑-提示承兑申请
+        path: '/billBusiness/accept/acceptApply',
+        name: 'acceptApply',
+        component: () => import('views/billBusiness/accept/acceptApply.vue'),
+        meta: { title: '提示承兑申请', },
+    },
+    { //承兑-提示承兑撤销
+        path: '/billBusiness/accept/acceptRevocation',
+        name: 'acceptRevocation',
+        component: () => import('views/billBusiness/accept/acceptRevocation.vue'),
+        meta: { title: '提示承兑撤销', },
+    },
+    {//撤票
+        path: '/billBusiness/revocationBill',
+        name: 'revocationBill',
+        component: () => import('views/billBusiness/revocationBill/revocationBill.vue'),
+        meta: { title: '撤票', },
+    },
+    {//提示收票-提示收票申请
+        path: '/billBusiness/thisTicket/thisTicketApply',
+        name: 'thisTicketApply',
+        component: () => import('views/billBusiness/thisTicket/thisTicketApply.vue'),
+        meta: { title: '提示收票申请', },
+    },
+    {//提示收票-提示收票撤销
+        path: '/billBusiness/thisTicket/thisTicketRevocation',
+        name: 'thisTicketRevocation',
+        component: () => import('views/billBusiness/thisTicket/thisTicketRevocation.vue'),
+        meta: { title: '提示收票撤销', },
+    },
+    {//贴现-贴现申请
+        path: '/billBusiness/discount/discountApply',
+        name: 'discountApply',
+        component: () => import('views/billBusiness/discount/discountApply.vue'),
+        meta: { title: '贴现申请', },
+    },
+    {//贴现-贴现撤销
+        path: '/billBusiness/discount/discountRevocation',
+        name: 'discountRevocation',
+        component: () => import('views/billBusiness/discount/discountRevocation.vue'),
+        meta: { title: '贴现撤销', },
+    },
+    {//背书转让-背书转让申请
+        path: '/billBusiness/negotiablity/negotiablityApply',
+        name: 'negotiablityApply',
+        component: () => import('views/billBusiness/negotiablity/negotiablityApply.vue'),
+        meta: { title: '背书转让申请', },
+    },
+    {//背书转让-背书转让撤销
+        path: '/billBusiness/negotiablity/negotiablityRevocation',
+        name: 'negotiablityApply',
+        component: () => import('views/billBusiness/negotiablity/negotiablityRevocation.vue'),
+        meta: { title: '背书转让撤销', },
+    },
+    { //质押-质押申请
+        path: '/billBusiness/pledge/pledge',
+        name: 'pledge',
+        component: () => import('views/billBusiness/pledge/pledge.vue'),
+        meta: { title: '质押申请', },
+    },
+    {//质押-质押撤销
+        path: '/billBusiness/pledge/pledgeRevocation',
+        name: 'pledgeRevocation',
+        component: () => import('views/billBusiness/pledge/pledgeRevocation.vue'),
+        meta: { title: '质押撤销', },
+    },
+    {//质押-解质押申请
+        path: '/billBusiness/pledge/removePledgeApply',
+        name: 'removePledgeApply',
+        component: () => import('views/billBusiness/pledge/removePledgeApply.vue'),
+        meta: { title: '解质押申请', },
+    },
+    {//质押-解质押申请撤销
+        path: '/billBusiness/pledge/removePledgeApplyRevocation',
+        name: 'removePledgeApplyRevocation',
+        component: () => import('views/billBusiness/pledge/removePledgeApplyRevocation.vue'),
+        meta: { title: '解质押申请撤销', },
+    },
+    { //提示付款-提示付款申请
+        path: '/billBusiness/perForPayment/perForPaymentApply',
+        name: 'perForPaymentApply',
+        component: () => import('views/billBusiness/perForPayment/perForPaymentApply.vue'),
+        meta: { title: '提示付款申请', },
+    },
+    {//提示付款-提示付款撤销
+        path: '/billBusiness/perForPayment/perForPaymentRevocation',
+        name: 'perForPaymentRevocation',
+        component: () => import('views/billBusiness/perForPayment/perForPaymentRevocation.vue'),
+        meta: { title: '提示付款撤销', },
+    },
+    { //追索/清偿-追索申请
+        path: '/billBusiness/pressPaymentAndpayOff/pressPaymentApply',
+        name: 'pressPaymentApply',
+        component: () => import('views/billBusiness/pressPaymentAndpayOff/pressPaymentApply.vue'),
+        meta: { title: '追索申请', },
+    },
+    {//追索/清偿-追索申请撤销
+        path: '/billBusiness/pressPaymentAndpayOff/pressPaymentRevocation',
+        name: 'pressPaymentRevocation',
+        component: () => import('views/billBusiness/pressPaymentAndpayOff/pressPaymentRevocation.vue'),
+        meta: { title: '追索申请撤销', },
+    },
+    {//追索/清偿-同意清偿
+        path: '/billBusiness/pressPaymentAndpayOff/payOffApply',
+        name: 'payOffApply',
+        component: () => import('views/billBusiness/pressPaymentAndpayOff/payOffApply.vue'),
+        meta: { title: '同意清偿', },
+    },
+    {//追索/清偿-同意清偿撤销
+        path: '/billBusiness/pressPaymentAndpayOff/payOffRevocation',
+        name: 'payOffRevocation',
+        component: () => import('views/billBusiness/pressPaymentAndpayOff/payOffRevocation.vue'),
+        meta: { title: '同意清偿撤销', },
+    },
+    {//待签收业务-提示收票签收
+        path: '/billBusiness/toBeSigned/PromptToCollectTickets',
+        name: 'PromptToCollectTickets',
+        component: () => import('views/billBusiness/toBeSigned/PromptToCollectTickets.vue'),
+
+        meta: { title: '提示收票签收', },
+    },
+    {//待签收业务-提示收票签收
+        path: '/billBusiness/toBeSigned/endorsementTransfer',
+        name: 'endorsementTransfer',
+        component: () => import('views/billBusiness/toBeSigned/endorsementTransfer.vue'),
+        meta: { title: '背书转让签收', },
+    },
+    {//待签收业务-提示收票签收
+        path: '/billBusiness/toBeSigned/pledgeSign',
+        name: 'pledgeSign',
+        component: () => import('views/billBusiness/toBeSigned/pledgeSign.vue'),
+        meta: { title: '质押签收', },
+    },
+    {//待签收业务-提示收票签收
+        path: '/billBusiness/toBeSigned/removePledgeApplySign',
+        name: 'removePledgeApplySign',
+        component: () => import('views/billBusiness/toBeSigned/removePledgeApplySign.vue'),
+        meta: { title: '解质押签收', },
+    },
+    {//待签收业务-提示收票签收
+        path: '/billBusiness/toBeSigned/payOffSign',
+        name: 'payOffSign',
+        component: () => import('views/billBusiness/toBeSigned/payOffSign.vue'),
+        meta: { title: '同意清偿签收', },
+    },
+    {//查询-票据交易查询
+        path: '/billBusiness/query/billBusiness',
+        name: 'billBusiness',
+        component: () => import('views/billBusiness/query/billBusiness.vue'),
+        meta: { title: '票据交易查询', },
+    },
+    {//查询-票据信息查询
+        path: '/billBusiness/query/billinfo',
+        name: 'billinfo',
+        component: () => import('views/billBusiness/query/billinfo.vue'),
+        meta: { title: '票据信息查询', },
+    },
+    {//查询-票据结果查询
+        path: '/billBusiness/query/billResult',
+        name: 'billResult',
+        component: () => import('views/billBusiness/query/billResult.vue'),
+        meta: { title: '票据结果查询', },
+    },
+    {//收款人维护
+        path: '/billBusiness/payee',
+        name: 'payee',
+        redirect: "/billBusiness/payee/drawAbillPayee",
+        component: () => import('views/billBusiness/payee/index.vue'),
+        meta: { title: '收款人维护', },
+        children: [
+            {
+                path: '/billBusiness/payee/drawAbillPayee',
+                name: 'drawAbillPayee',
+                component: () => import('views/billBusiness/payee/drawAbillPayee/drawAbillPayee.vue'),
+                meta: {
+                    title: '出票收款人',
+                },
+            },
+            {
+                path: '/billBusiness/payee/negotiablityPayee',
+                name: 'negotiablityPayee',
+                component: () => import('views/billBusiness/payee/negotiablityPayee/negotiablityPayee.vue'),
+                meta: {
+                    title: '背书收款人',
+                },
+            },
+        ]
+    },
+
+]
 /*
 const recom = {
     template: `<router-view></router-view>`

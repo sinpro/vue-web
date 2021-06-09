@@ -39,8 +39,8 @@
 import stayBillInfoFill from "./stayBillInfoFill";
 import stayBillInfoConfirm from "./stayBillInfoConfirm";
 import stayBillSuccess from "./stayBillSuccess";
-import stepErrer from "src/components/stepErrer";
-import UDialog from "src/components/common/ukDialog/ukDialog";
+import stepErrer from "components/stepErrer";
+import UDialog from "components/common/ukDialog/ukDialog";
 export default {
   components: {
     stayBillInfoFill,

@@ -56,14 +56,14 @@
           <el-input
             v-model="formData.minNum"
             placeholder="请输入"
-            class="w140"
+            class="w145"
             @input.native="NumInput"
           ></el-input>
-          <span class="mlr10">~</span>
+          <span class="mlr10 f16">~</span>
           <el-input
             v-model="formData.maxNum"
             placeholder="请输入"
-            class="w140"
+            class="w145"
             @input.native="NumInput"
           ></el-input>
         </el-form-item>
@@ -79,7 +79,7 @@
         <el-button type="primary" @click="search" size="mini">查询</el-button>
       </div>
       <el-table :data="tableData" stripe>
-        <el-table-column type="selection" width="80"> </el-table-column>
+        <el-table-column type="selection" width="104"> </el-table-column>
         <el-table-column prop="id" label="票号" width="400"> </el-table-column>
         <el-table-column prop="id" label="票据类型" width="140">
         </el-table-column>
@@ -122,7 +122,7 @@
 </template>
 <script>
 import mathTools from "utils/mathTools.js";
-import auditProcess from "src/components/auditProcess/index.vue";
+import auditProcess from "components/auditProcess/index.vue";
 import pressPaymentApplyStep from "./pressPaymentApplyStep.vue";
 
 export default {
@@ -145,7 +145,7 @@ export default {
       }
     };
     return {
-      step: 2,
+      step: 1,
       list: [
         {
           type: "finish",
@@ -209,8 +209,8 @@ export default {
 </script>
 <style lang="scss">
 .pressPaymentApply {
-  .w140 {
-    width: 141px;
+  .w145 {
+    width: 145px;
   }
   .el-radio {
     margin-right: 53px;
