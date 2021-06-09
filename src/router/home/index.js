@@ -6,7 +6,7 @@ export default [
       resolve =>
         require.ensure(
           [],
-          () => resolve(require('views/home/login.vue')),
+          () => resolve(require('views/login/LoginMainNew.vue')),
         ),
     meta: {
       title: '登录',

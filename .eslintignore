@@ -6,3 +6,4 @@ dist/*
 *.min.js
 */lib/*.js
 src/*
+package-lock.json

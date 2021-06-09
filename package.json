@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "echarts": "^4.0.4",
     "element-ui": "^2.15.2",
     "js-cookie": "^2.2.1",
     "mockjs": "^1.1.0",

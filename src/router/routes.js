@@ -43,10 +43,10 @@ const asyncRoutes = [
         'Layout'
       ),
     children:[
-      // ...accountManagement, // 账户管理
-      // ...paymentSettlement, //转账汇款
-      // ...issueAndReceive, // 代发代收
-      // ...investmentFinancing, //投资理财
+      ...accountManagement, // 账户管理
+      ...paymentSettlement, //转账汇款
+      ...issueAndReceive, // 代发代收
+      ...investmentFinancing, //投资理财
       // ...billBusiness, // 票据业务
       // ...internationalBusiness, //国际业务
       // ...groupBusiness, // 集团业务

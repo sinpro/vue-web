@@ -1,9 +1,58 @@
 export default [
   {id:'1',name:'首页',path:'/home',children:[]},
-  {id:'2',name:'账户管理',path:'',children:[]},
-  {id:'3',name:'转账汇款',path:'',children:[]},
-  {id:'4',name:'代发代收',path:'',children:[]},
-  {id:'5',name:'投资理财',path:'',children:[]},
+  {id:'2',name:'账户管理',path:'',children:[
+    {id:'21',name:'财富总览',path:'/accountManagement/assetOverview',children:[]},
+    {id:'22',name:'账户查询',path:'/accountManagement/accountQuery',children:[]},
+    {id:'23',name:'添加账户',path:'/accountManagement/addAccount',children:[]},
+    {id:'24',name:'银企对账',path:'',children:[
+      {id:'241',name:'余额对账',path:'/accountManagement/balanceCheck',children:[]}
+    ]},
+    {id:'25',name:'电子回单',path:'/home',children:[
+      {id:'251',name:'电子回单查询/打印',path:'/accountManagement/electricBillQuery',children:[]},
+      {id:'252',name:'电子回单验证',path:'/accountManagement/electricBillCheck',children:[]},
+    ]},
+  ]},
+  {id:'3',name:'转账汇款',path:'',children:[
+    {id:'31',name:'单笔转账',path:'/paymentSettlement/oneStopTransfer',children:[]},
+    {id:'32',name:'批量转账',path:'/paymentSettlement/batchTransfer',children:[]},
+    {id:'33',name:'转账交易查询',path:'/paymentSettlement/transferQuery',children:[]},
+    {id:'34',name:'联行号查询',path:'/paymentSettlement/associatedNumberQuery',children:[]},
+    {id:'35',name:'常用收款人',path:'/paymentSettlement/payee',children:[]},
+    {id:'36',name:'银企对账',path:'',children:[
+      {id:'351',name:'余额对账',path:'/paymentSettlement/anInterBankCredit/collection',children:[]},
+      {id:'352',name:'余额对账',path:'/paymentSettlement/anInterBankCredit/dealQuery',children:[]}
+    ]},
+  ]},
+  {id:'4',name:'代发代收',path:'',children:[
+    {id:'41',name:'代发业务',path:'',children:[
+      {id:'411',name:'代发',path:'/issueAndReceive/replaceIssueWork/replaceIssue',children:[]},
+      {id:'412',name:'代发交易查询',path:'/issueAndReceive/replaceIssueWork/replaceIssueQuery',children:[]}]
+    },
+    {id:'42',name:'电子工资单',path:'',children:[
+      {id:'421',name:'发布电子工资单',path:'/issueAndReceive/electronicPayroll/replaceElectronicPayroll',children:[]},
+      {id:'422',name:'发布记录查询',path:'/issueAndReceive/electronicPayroll/replaceRecordQuery',children:[]}]
+    },
+    {id:'43',name:'代收业务',path:'',children:[
+      {id:'431',name:'代收',path:'/issueAndReceive/replaceReceiveWork/replaceReceive',children:[]},
+      {id:'432',name:'代收交易查询',path:'/issueAndReceive/replaceReceiveWork/replaceReceiveQuer',children:[]},
+      {id:'433',name:'收费',path:'/issueAndReceive/replaceReceiveWork/toll',children:[]}]
+    },
+  ]},
+  {id:'5',name:'投资理财',path:'',children:[
+    {id:'51',name:'理财产品',path:'',children:[
+      {id:'511',name:'理财超市',path:'/investmentFinancing/financialProducts/financialSupermarket',children:[]},
+      {id:'512',name:'我的理财',path:'/investmentFinancing/financialProducts/myfinancial',children:[]},
+      {id:'513',name:'历史交易查询',path:'/investmentFinancing/financialProducts/transactionInquiry',children:[]},
+      {id:'514',name:'风险评估',path:'/investmentFinancing/financialProducts/riskAassessment',children:[]}]
+    },
+    {id:'52',name:'存款业务',path:'',children:[
+      
+      {id:'521',name:'定期存款',path:'/investmentFinancing/depositBusiness/fixedDeposit',children:[]},
+      {id:'522',name:'通知存款',path:'/investmentFinancing/depositBusiness/noticeDeposit',children:[]},
+      {id:'523',name:'大额存单',path:'/investmentFinancing/depositBusiness/certificatesOfDeposit',children:[]},
+      {id:'524',name:'存款明细',path:'/investmentFinancing/depositBusiness/depositDetail',children:[]}]
+    },
+  ]},
   {id:'6',name:'票据业务',path:'',children:[]},
   {id:'7',name:'融资贷款',path:'',children:[]},
   {id:'8',name:'特色服务',path:'',children:[]},

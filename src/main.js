@@ -4,8 +4,12 @@ import router from './router';
 
 import ElementUI from 'element-ui';
 import store from './store';
-import 'element-ui/lib/theme-chalk/index.css';
+import 'src/tools/style/theme/index.css';
+// import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
+
+import echarts from 'echarts';
+Vue.prototype.$echarts = echarts;
 
 // demo环境
 if(isMockEnv){

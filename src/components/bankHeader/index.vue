@@ -1,6 +1,8 @@
 <template>
   <div class="bank-header">
-    <div class="bank-header-search"></div>
+    <div class="bank-header-search">
+      <searchLogut></searchLogut>
+    </div>
     <div class="bank-header-nav">
       <ul class="clearfix">
         <li 
@@ -43,6 +45,7 @@
   </div>
 </template>
 <script>
+import searchLogut from './searchLogut';
 import { mapGetters,mapMutations } from 'vuex';
 import {getFirstActiveArr,getActiveClickArr} from 'utils';
 export default {
@@ -53,6 +56,7 @@ export default {
       isScroll:true, //监听是否滚动
     }
   },
+  components:{searchLogut},
   computed: {
     ...mapGetters([
       "getUserMenus",
@@ -123,8 +127,11 @@ export default {
 <style lang="scss" scoped>
 .bank-header{
   //height: 120px;
+  background: #fff;
   &-search{
-    height: 74px;
+    // height: 74px;
+    width:1200px;
+    margin: 0 auto;
   }
   &-nav{
     height: 46px;
@@ -141,7 +148,7 @@ export default {
           margin: 0 auto;
           position: fixed;
           left: 0;
-          top: 112px;
+          top: 142px;
           padding-top:8px;
           z-index: 9;
           cursor: default;
