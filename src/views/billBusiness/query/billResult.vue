@@ -48,17 +48,19 @@
       <el-table-column prop="id" label="票号" width="400"> </el-table-column>
       <el-table-column prop="id" label="票据类型" width="140">
       </el-table-column>
-      <el-table-column prop="name" label="出票日期" width="140">
+      <el-table-column prop="name" label="出票日期" width="220">
       </el-table-column>
-      <el-table-column prop="code" label="到期日期" width="140">
+      <el-table-column prop="code" label="到期日期" width="220">
       </el-table-column>
       <el-table-column prop="code" label="票据金额(元)" width="140">
       </el-table-column>
-      <el-table-column prop="code" label="收款人名称" width="140">
+       <el-table-column prop="code" label="业务类型" width="140">
       </el-table-column>
-      <el-table-column prop="code" label="承兑人名称" width="140">
+      <el-table-column prop="code" label="交易状态" width="140">
       </el-table-column>
-      <el-table-column prop="code" label="是否转让" width="140">
+      <el-table-column prop="code1" label="异常信息" width="550">
+      </el-table-column>
+      <el-table-column prop="code" label="交易时间" width="220">
       </el-table-column>
     </el-table>
     <el-pagination
@@ -120,7 +122,9 @@ export default {
         },
       ],
       formData: {},
-      tableData: [{}],
+      tableData: [{
+        code1:"背书日期检查失败! -- 申请报文日期[2019-06-10]不等于当前系统工作日期[2019-06-11] "
+      }],
       currentPage: 0,
       pageSize: 10,
       total: 10,
@@ -146,8 +150,8 @@ export default {
 </script>
 <style lang="scss">
 .billResult {
-  .w140 {
-    width: 141px;
+  .w145 {
+    width: 145px;
   }
 }
 </style>

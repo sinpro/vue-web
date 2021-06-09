@@ -25,7 +25,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="出票日期:" prop="bankName">
-        <el-input v-model="formData.disabled" disabled v-support></el-input>
+        <el-input v-model="formData.disabled"  v-support></el-input>
         <div class="ml16 gray2 f14">出票日期默认为当日日期</div>
       </el-form-item>
       <el-form-item label="到期日期:" prop="accType">

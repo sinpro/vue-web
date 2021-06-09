@@ -39,8 +39,8 @@
 import OneStopInfoFill from "./oneStopInfoFill";
 import OneStopInfoConfirm from "./oneStopInfoConfirm";
 import OneStopSuccess from "./oneStopSuccess";
-import stepErrer from "src/components/stepErrer";
-import UDialog from "src/components/common/ukDialog/ukDialog";
+import stepErrer from "components/stepErrer";
+import UDialog from "components/common/ukDialog/ukDialog";
 export default {
   components: {
     OneStopInfoFill,

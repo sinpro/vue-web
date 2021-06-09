@@ -49,14 +49,14 @@
         <el-input
           v-model="formData.minNum"
           placeholder="请输入"
-          class="w140"
+          class="w145"
           @input.native="NumInput"
         ></el-input>
-        <span class="mlr10">~</span>
+        <span class="mlr10 f16">~</span>
         <el-input
           v-model="formData.maxNum"
           placeholder="请输入"
-          class="w140"
+          class="w145"
           @input.native="NumInput"
         ></el-input>
       </el-form-item>
@@ -65,7 +65,7 @@
       <el-button type="primary" @click="search" size="mini">查询</el-button>
     </div>
     <el-table :data="tableData" stripe>
-      <el-table-column type="selection" width="80"> </el-table-column>
+      <el-table-column type="selection" width="104"> </el-table-column>
       <el-table-column prop="id" label="票据类型" width="140">
       </el-table-column>
       <el-table-column prop="name" label="出票日期" width="140">
@@ -282,8 +282,8 @@ export default {
 </script>
 <style lang="scss">
 .stayBill {
-  .w140 {
-    width: 141px;
+  .w145 {
+    width: 145px;
   }
   .cen-form {
     align-items: flex-start;

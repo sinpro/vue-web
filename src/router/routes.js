@@ -47,7 +47,7 @@ const asyncRoutes = [
       ...paymentSettlement, //转账汇款
       ...issueAndReceive, // 代发代收
       ...investmentFinancing, //投资理财
-      // ...billBusiness, // 票据业务
+      ...billBusiness, // 票据业务
       // ...internationalBusiness, //国际业务
       // ...groupBusiness, // 集团业务
       // ...financingLoan, //融资贷款

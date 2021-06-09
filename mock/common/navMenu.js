@@ -54,53 +54,67 @@ export default [
   ]},
   {id:'6',name:'票据业务',path:'',children:[
     {id:'61',name:'出票',path:'',children:[
-        {id:'611',name:'出票申请',path:'',children:[]},
-        {id:'612',name:'待出票清单',path:'',children:[]},
+      { id: '611', name: '出票申请', path:'/billBusiness/drawAbill/drawAbillApply',children:[]},
+      { id: '612', name: '待出票清单', path:'/billBusiness/drawAbill/stayBill',children:[]},
       ]
     },
     {id:'62',name:'承兑',path:'',children:[
-        {id:'611',name:'提示承兑申请',path:'',children:[]},
-        {id:'612',name:'提示承兑撤销',path:'',children:[]},
+      { id: '621', name: '提示承兑申请', path:'/billBusiness/accept/acceptApply',children:[]},
+      { id: '622', name: '提示承兑撤销', path:'/billBusiness/accept/acceptRevocation',children:[]},
       ]
     },
-    {id:'63',name:'撤票',path:'',children:[]},
+    { id: '63', name: '撤票', path:'/billBusiness/revocationBill',children:[]},
     {id:'64',name:'提示收票',path:'',children:[
-        {id:'641',name:'提示收票申请',path:'',children:[]},
-        {id:'642',name:'提示收票撤销',path:'',children:[]},
+      { id: '641', name: '提示收票申请', path:'/billBusiness/thisTicket/thisTicketApply',children:[]},
+      { id: '642', name: '提示收票撤销', path:'/billBusiness/thisTicket/thisTicketRevocation',children:[]},
       ]
     },
     {id:'65',name:'贴现',path:'',children:[
-        {id:'651',name:'贴现申请',path:'',children:[]},
-        {id:'652',name:'贴现撤销',path:'',children:[]},
+      { id: '651', name: '贴现申请', path:'/billBusiness/discount/discountApply',children:[]},
+      { id: '652', name: '贴现撤销', path:'/billBusiness/discount/discountRevocation',children:[]},
       ]
     },
     {id:'66',name:'背书转让',path:'',children:[
-        {id:'661',name:'背书转让申请',path:'',children:[]},
-        {id:'662',name:'背书转让撤销',path:'',children:[]},
+      { id: '661', name: '背书转让申请', path:'/billBusiness/negotiablity/negotiablityApply',children:[]},
+      { id: '662', name: '背书转让撤销', path:'/billBusiness/negotiablity/negotiablityRevocation',children:[]},
       ]
     },
-    {id:'67',name:'追索/清偿',path:'',children:[
-        {id:'671',name:'追索申请',path:'',children:[]},
-        {id:'672',name:'追索申请撤销',path:'',children:[]},
-        {id:'673',name:'同意清偿',path:'',children:[]},
-        {id:'674',name:'同意清偿撤销',path:'',children:[]},
+    {
+      id: '67', name: '质押', path: '', children: [
+        { id: '671', name: '质押申请', path: '/billBusiness/pledge/pledge', children: [] },
+        { id: '672', name: '质押撤销', path: '/billBusiness/pledge/pledgeRevocation', children: [] },
+        { id: '673', name: '质押申请', path: '/billBusiness/pledge/removePledgeApply', children: [] },
+        { id: '674', name: '质押申请', path: '/billBusiness/pledge/removePledgeApplyRevocation', children: [] },
       ]
     },
-    {id:'68',name:'待签收业务',path:'',children:[
-        {id:'681',name:'提示收票签收',path:'',children:[]},
-        {id:'682',name:'背书转让签收',path:'',children:[]},
-        {id:'683',name:'质押签收',path:'',children:[]},
-        {id:'684',name:'解质押签收',path:'',children:[]},
-        {id:'685',name:'同意清偿签收',path:'',children:[]},
+    {
+      id: '68', name: '提示付款', path: '', children: [
+        { id: '681', name: '提示付款申请', path: '/billBusiness/perForPayment/perForPaymentApply', children: [] },
+        { id: '682', name: '提示付款撤销', path: '/billBusiness/perForPayment/perForPaymentRevocation', children: [] },
       ]
     },
-    {id:'69',name:'查询',path:'',children:[
-        {id:'691',name:'票据交易查询',path:'',children:[]},
-        {id:'692',name:'票据信息查询',path:'',children:[]},
-        {id:'693',name:'票据结果查询',path:'',children:[]},
+    {id:'69',name:'追索/清偿',path:'',children:[
+      { id: '691', name: '追索申请', path:'/billBusiness/pressPaymentAndpayOff/pressPaymentApply',children:[]},
+      { id: '692', name: '追索申请撤销', path:'/billBusiness/pressPaymentAndpayOff/pressPaymentRevocation',children:[]},
+      { id: '693', name: '同意清偿', path:'/billBusiness/pressPaymentAndpayOff/payOffApply',children:[]},
+      { id: '694', name: '同意清偿撤销', path:'/billBusiness/pressPaymentAndpayOff/payOffRevocation',children:[]},
       ]
     },
-    {id:'60',name:'收款人维护',path:'',children:[]},
+    {id:'60',name:'待签收业务',path:'',children:[
+      { id: '601', name: '提示收票签收', path:'/billBusiness/toBeSigned/PromptToCollectTickets',children:[]},
+      { id: '602', name: '背书转让签收', path:'/billBusiness/toBeSigned/endorsementTransfer',children:[]},
+      { id: '603', name: '质押签收', path:'/billBusiness/toBeSigned/pledgeSign',children:[]},
+      { id: '604', name: '解质押签收', path:'/billBusiness/toBeSigned/removePledgeApplySign',children:[]},
+      { id: '605', name: '同意清偿签收', path:'/billBusiness/toBeSigned/payOffSign',children:[]},
+      ]
+    },
+    {id:'6-11',name:'查询',path:'',children:[
+      { id: '6-11-1', name: '票据交易查询', path:'/billBusiness/query/billBusiness',children:[]},
+      { id: '6-11-2', name: '票据信息查询', path:'/billBusiness/query/billinfo',children:[]},
+      { id: '6-11-3', name: '票据结果查询', path:'/billBusiness/query/billResult',children:[]},
+      ]
+    },
+    { id: '6-12', name: '收款人维护', path:'/billBusiness/payee',children:[]},
   ]},
   {id:'7',name:'国际业务',path:'',children:[
     {id:'71',name:'外汇汇款',path:'',children:[
