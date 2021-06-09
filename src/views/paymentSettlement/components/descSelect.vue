@@ -105,6 +105,9 @@ export default {
   }
 }
 .optionItem {
+  i{
+    color: #d9d9d9;
+  }
   i:hover {
     color: #eb3d3d;
   }

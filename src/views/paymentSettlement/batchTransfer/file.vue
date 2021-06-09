@@ -10,24 +10,26 @@
       <el-form-item label="付款账号:" prop="transOutAcct">
         <div>
           <div class="el-input__inner out-acct w320">
-            <p class="lh20 mt10" v-if="formData.transOutName">
-              {{ formData.transOutName }}|{{ formData.transOutAlise }}
-            </p>
-            <p>
-              {{ formData.transOutAcct | acctFormat(formData.transOutAcct) }}
-            </p>
+            <div v-if="formData.transOutName">
+              <p class="lh20 mt10">
+                {{ formData.transOutName }}|{{ formData.transOutAlise }}
+              </p>
+              <p>
+                {{ formData.transOutAcct | acctFormat(formData.transOutAcct) }}
+              </p>
+            </div>
           </div>
-          <el-button type="text" class="ml10 vat" @click="accountFlag = true"
+          <el-button type="text" class="ml16 vat" @click="accountFlag = true"
             >账户查询</el-button
           >
         </div>
-        <p class="lh16 mt12 ml16" v-if="formData.transOutBalance">
+        <div class="f14 mt12 ml16" v-if="formData.transOutBalance">
           余额
           <span class="money">{{
             formData.transOutBalance | formatMoney(formData.transOutBalance)
           }}</span>
           元
-        </p>
+        </div>
       </el-form-item>
 
       <title-bar title="转账信息"></title-bar>

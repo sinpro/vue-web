@@ -52,8 +52,8 @@
               popper-class="payee-popper"
             >
               <div>
-                <p size="mini">组详情</p>
-                <p size="mini">顶置组</p>
+                <p >组详情</p>
+                <p >顶置组</p>
               </div>
               <el-button
                 slot="reference"

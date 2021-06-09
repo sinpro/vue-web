@@ -17,13 +17,13 @@
               {{ formData.payAcctNo | acctFormat(formData.payAcctNo) }}
             </p>
           </div>
-          <span class="ml10 vat inline-block w100">
+          <span class="ml16 vat">
             <el-checkbox
               v-if="!account.dfitAcctCd"
               v-model="formData.setDefault"
               >设置为默认账户</el-checkbox
             >
-            <el-button type="text" @click="accountFlag = true"
+            <el-button type="text" @click="accountFlag = true" class="ml16"
               >账户查询</el-button
             >
           </span>
@@ -37,7 +37,7 @@
         </p>
       </el-form-item>
       <title-bar title="收款人信息"></title-bar>
-      <el-form-item class="mt10" label="收款户名:" prop="rcvActNm">
+      <el-form-item label="收款户名:" prop="rcvActNm">
         <el-autocomplete
           class="inline-input"
           v-model="formData.rcvActNm"
@@ -46,7 +46,7 @@
           placeholder="请输入收款户名"
           @select="handleSelect"
         ></el-autocomplete>
-        <el-button type="text" class="ml10" @click="searchPayee"
+        <el-button type="text" class="ml16" @click="searchPayee"
           >常用收款人</el-button
         >
       </el-form-item>
@@ -64,7 +64,7 @@
           placeholder="请选择收款银行"
           v-support
         ></el-input>
-        <el-button type="text" class="ml10" @click="BankListSwitch = true"
+        <el-button type="text" class="ml16" @click="BankListSwitch = true"
           >银行查询</el-button
         >
       </el-form-item>
@@ -105,7 +105,7 @@
               <!-- formatMoney -->
               1111 }}元</span
             >
-            <el-button type="text" class="ml10" @click="settleFlag = true"
+            <el-button type="text" class="ml16" @click="settleFlag = true"
               >手续费标准</el-button
             >
           </p>
@@ -141,13 +141,11 @@
       </el-form-item>
       <el-form-item label="备注:">
         <el-input
-          type="textarea"
           placeholder="请输入备注"
           v-model="formData.remrk"
           show-word-limit
-          resize="none"
+          maxlength="10"
           v-support
-          :autosize="{ minRows: 2, maxRows: 6 }"
         >
         </el-input>
       </el-form-item>

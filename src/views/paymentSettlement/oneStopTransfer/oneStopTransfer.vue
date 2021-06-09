@@ -2,7 +2,6 @@
   <div class="">
     <steps :stepsList="stepsList" :activeIndex="activeIndex"></steps>
     <one-stop-info-fill
-      class="mt10"
       v-if="steps == 'infoFill'"
       :formData="formData"
       @transConfirm="transConfirm"
@@ -78,7 +77,7 @@ export default {
   },
   methods: {
     transConfirm() {
-      this.steps = "infoConfirm";
+      this.steps = "infoFill";
     },
     transReset() {
       this.formData = {

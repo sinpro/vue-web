@@ -13,21 +13,21 @@
             <p class="lh20 mt10" v-if="formData.transOutName">
               {{ formData.transOutName }}|{{ formData.transOutAlise }}
             </p>
-            <p>
+            <p v-if="formData.transOutName">
               {{ formData.transOutAcct | acctFormat(formData.transOutAcct) }}
             </p>
           </div>
-          <el-button type="text" class="ml10 vat" @click="accountFlag = true"
+          <el-button type="text" class="ml16 vat" @click="accountFlag = true"
             >账户查询</el-button
           >
         </div>
-        <p class="lh16 mt12 ml16" v-if="formData.transOutBalance">
+        <div class="f14 mt12 ml16" v-if="formData.transOutBalance">
           余额
           <span class="money">{{
             formData.transOutBalance | formatMoney(formData.transOutBalance)
           }}</span>
           元
-        </p>
+        </div>
       </el-form-item>
 
       <title-bar title="收款人信息"></title-bar>
@@ -37,7 +37,7 @@
         >
         <span class="f14 tar"
           >总笔数：{{ table.length }}笔
-          <span class="ml40">总金额：12，333，444，00元</span></span
+          <span class="ml40">总金额：12,333,444,00元</span></span
         >
       </div>
       <el-form ref="tableForm" label-width="0" :model="tableForm">
