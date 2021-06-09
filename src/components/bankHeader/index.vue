@@ -27,7 +27,7 @@
                   v-for="openTit in nav.children"
                   :key="openTit.id"
                 >
-                  <label @click="switchClickNav(nav,openTit)"><i class="el-icon-picture-outline"></i>{{openTit.name}}</label>
+                  <label @click="openChildClickNav(nav,openTit)"><i class="el-icon-picture-outline"></i>{{openTit.name}}</label>
                   <p 
                     v-for="openChild in openTit.children"
                     :key="openChild.id"
@@ -107,6 +107,7 @@ export default {
     },
     // 点击展开的菜单
     openChildClickNav(dataAll,dataCurrent){
+      console.log(dataCurrent,1111)
       this.hoverMenu='';
       this.setSliderMenus(Object.freeze(dataAll || []));
       this.setBreadcrumb(getActiveClickArr(dataCurrent.id,[dataAll]))
