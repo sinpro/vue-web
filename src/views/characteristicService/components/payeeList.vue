@@ -114,8 +114,8 @@
 </template>
 
 <script>
-import Swiper from "../../../../static/swiper/idangerous.swiper2.7.6.min.js";
-import "../../../../static/swiper/idangerous.swiper2.7.6.css";
+import Swiper from "../../../tools/swiper/idangerous.swiper2.7.6.min.js";
+import "../../../tools/swiper/idangerous.swiper2.7.6.css";
 export default {
   props: {
     type: {
