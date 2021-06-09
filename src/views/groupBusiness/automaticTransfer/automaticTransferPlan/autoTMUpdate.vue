@@ -28,12 +28,16 @@
         <el-form-item label="收款账户:" prop="transOutAcct">
           <div>
             <div class="el-input__inner out-acct w320">
-              <p class="lh20 mt10" v-if="formData.transOutName">
-                {{ formData.transOutName }}|{{ formData.transOutAlise }}
-              </p>
-              <p>
-                {{ formData.transOutAcct | acctFormat(formData.transOutAcct) }}
-              </p>
+              <div v-if="formData.transOutName">
+                <p class="lh20 mt10">
+                  {{ formData.transOutName }}|{{ formData.transOutAlise }}
+                </p>
+                <p>
+                  {{
+                    formData.transOutAcct | acctFormat(formData.transOutAcct)
+                  }}
+                </p>
+              </div>
             </div>
             <el-button type="text" class="ml10 vat" @click="accountFlag = true"
               >账户查询</el-button
@@ -348,8 +352,7 @@ export default {
     handleClick() {
       if (this.activeName == "stirSet") {
         this.$router.push({
-          path:
-            "/groupBusiness/automaticTransfer/automaticTransferPlan/stirSet",
+          path: "/groupBusiness/automaticTransfer/automaticTransferPlan/stirSet",
         });
       }
     },

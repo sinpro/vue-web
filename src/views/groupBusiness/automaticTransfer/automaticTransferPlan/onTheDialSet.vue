@@ -21,7 +21,7 @@
         <el-form-item label="付款账号:">
           <div>
             <div class="el-input__inner out-acct w320">
-              <p class="lh20 mt10" v-if="formData.transOutName">
+              <p class="lh20 mt10">
                 {{ formData.transOutName }}|{{ formData.transOutAlise }}
               </p>
               <p>
@@ -336,8 +336,7 @@ export default {
     handleClick() {
       if (this.activeName == "stirSet") {
         this.$router.push({
-          path:
-            "/groupBusiness/automaticTransfer/automaticTransferPlan/stirSet",
+          path: "/groupBusiness/automaticTransfer/automaticTransferPlan/stirSet",
         });
       }
     },

@@ -287,7 +287,7 @@ export default {
   data() {
     return {
       accountFlag: false,
-      activeName: "stirSet",
+      activeName: "onTheDialSet",
       formData: {},
       mounyBig: "",
       list: [

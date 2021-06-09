@@ -109,9 +109,7 @@ export default {
     goParticulars(row) {
       this.$router.push({ path: "" });
     },
-    goInfo(row) {
-       this.$router.push({ path: "/groupBusiness/informationQuery/accountBalanceBranchCompany/ABBCInfo" });
-    },
+    goInfo(row) {},
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
     },

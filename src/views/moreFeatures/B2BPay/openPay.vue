@@ -66,7 +66,7 @@
 </template>
 
 <script>
-  import mathTools from '@src/assets/utils/mathTools.js'
+  import mathTools from 'utils/mathTools.js'
 
   export default {
     data() {

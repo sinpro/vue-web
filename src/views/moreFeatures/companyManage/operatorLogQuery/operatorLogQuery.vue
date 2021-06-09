@@ -77,7 +77,7 @@
   </div>
 </template>
 <script>
-  import auditProcess from "@src/components/auditProcess/index.vue";
+  import auditProcess from "src/components/auditProcess/index.vue";
 
   export default {
     components: {
