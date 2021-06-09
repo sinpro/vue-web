@@ -49,7 +49,7 @@ const asyncRoutes = [
       ...investmentFinancing, //投资理财
       ...billBusiness, // 票据业务
       // ...internationalBusiness, //国际业务
-      // ...groupBusiness, // 集团业务
+      ...groupBusiness, // 集团业务
       // ...financingLoan, //融资贷款
       // ...characteristicService, // 特色服务
       ...cashManagement, //现金管理

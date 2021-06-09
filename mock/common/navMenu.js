@@ -135,18 +135,18 @@ export default [
     {id:'76',name:'查询',path:'',children:[]},
   ]},
   {id:'8',name:'集团业务',path:'',children:[
-    {id:'81',name:'资金上拨',path:'',children:[]},
-    {id:'82',name:'资金下拨',path:'',children:[]},
-    {id:'83',name:'内部划拨',path:'',children:[]},
-    {id:'84',name:'对外付款',path:'',children:[]},
+    { id: '81', name: '资金上拨', path:'/groupBusiness/onTheDial',children:[]},
+    { id: '82', name: '资金下拨', path:'/groupBusiness/stir',children:[]},
+    { id: '83', name: '内部划拨', path:'/groupBusiness/internalTransfer',children:[]},
+    { id: '84', name: '对外付款', path:'/groupBusiness/foreignPayment',children:[]},
     {id:'85',name:'自动划拨',path:'',children:[
-      {id:'851',name:'自动划拨计划',path:'',children:[]},
-      {id:'852',name:'划拨计划维护',path:'',children:[]},
+      { id: '851', name: '自动划拨计划', path:'/groupBusiness/automaticTransfer/automaticTransferPlan',children:[]},
+      { id: '852', name: '划拨计划维护', path:'/groupBusiness/automaticTransfer/automaticTransferMaintenance',children:[]},
     ]},
     {id:'86',name:'信息查询',path:'',children:[
-      {id:'861',name:'集团管理查询',path:'',children:[]},
-      {id:'862',name:'分公司账户余额查询',path:'',children:[]},
-      {id:'863',name:'划拨交易查询',path:'',children:[]},
+      { id: '861', name: '集团管理查询', path:'/groupBusiness/informationQuery/groupManagemen',children:[]},
+      { id: '862', name: '分公司账户余额查询', path:'/groupBusiness/informationQuery/accountBalanceBranchCompany',children:[]},
+      { id: '863', name: '划拨交易查询', path:'/groupBusiness/informationQuery/transferTransactions',children:[]},
     ]},
   ]},
   {id:'9',name:'融资贷款',path:'',children:[

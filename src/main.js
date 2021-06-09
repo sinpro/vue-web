@@ -11,6 +11,9 @@ Vue.use(ElementUI);
 import echarts from 'echarts';
 Vue.prototype.$echarts = echarts;
 
+import customCompt from 'src/components/index.js'
+Vue.use(customCompt)
+
 // demo环境
 if(isMockEnv){
 	const mock = require('../mock');
