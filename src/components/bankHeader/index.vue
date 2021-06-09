@@ -27,7 +27,7 @@
                   v-for="openTit in nav.children"
                   :key="openTit.id"
                 >
-                  <label><i class="el-icon-picture-outline"></i>{{openTit.name}}</label>
+                  <label @click="switchClickNav(nav,openTit)"><i class="el-icon-picture-outline"></i>{{openTit.name}}</label>
                   <p 
                     v-for="openChild in openTit.children"
                     :key="openChild.id"
@@ -158,6 +158,8 @@ export default {
             margin: 0 auto;
             padding: 16px;
             background: #fff;
+            box-shadow: 0px 2px 9px 0px 
+	    	rgba(0, 0, 0, 0.08);
             ol{
               li{
                 word-break:break-all;
@@ -168,6 +170,7 @@ export default {
                   color: #000000;
                   margin-bottom: 20px;
                   font-weight: 600;
+                  cursor: pointer;
                   i{
                     color: #C6A34F;
                     margin-right:5px;
