@@ -48,7 +48,7 @@ export default {
         
         //去详情页面
         goToDetails(){
-            this.$router.push('/financeBussiness/loanBussiness/loanRepaymentDetails')
+            this.$router.push('/financingLoan/loanBussiness/loanRepaymentDetails')
         },
     }
     

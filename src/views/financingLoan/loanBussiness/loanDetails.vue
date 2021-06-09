@@ -209,7 +209,7 @@ export default {
     },
     methods:{
         modify(){
-            this.$router.push('/financeBussiness/loanBussiness/loanDetailsModify')
+            this.$router.push('/financingLoan/loanBussiness/loanDetailsModify')
         },
         revoke(){
             this.$confirm('确定要撤消贷款申请吗？', {

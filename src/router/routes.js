@@ -51,7 +51,7 @@ const asyncRoutes = [
       ...billBusiness, // 票据业务
       // ...internationalBusiness, //国际业务
       ...groupBusiness, // 集团业务
-      // ...financingLoan, //融资贷款
+      ...financingLoan, //融资贷款
       // ...characteristicService, // 特色服务
       ...cashManagement, //现金管理
       // ...moreFeatures, // 更多功能

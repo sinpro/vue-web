@@ -88,7 +88,7 @@ export default {
       this.show=!this.show
     },
     myApply(){
-      this.$router.push("/financeBussiness/loanBussiness/myApplication")
+      this.$router.push("/financingLoan/loanBussiness/myApplication")
     },
     showContent(num){
       this.contentNum=num

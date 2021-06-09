@@ -170,7 +170,7 @@ export default {
         },
        
         submit(){
-            this.$router.push('/financeBussiness/loanBussiness/entrustedPaymentResult')
+            this.$router.push('/financingLoan/loanBussiness/entrustedPaymentResult')
         },
         
 

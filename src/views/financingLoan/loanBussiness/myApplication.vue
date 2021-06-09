@@ -140,7 +140,7 @@ export default {
     methods:{
         //体交申请
         submit(){
-            this.$router.push("/financeBussiness/loanBussiness/myApplicationResult")
+            this.$router.push("/financingLoan/loanBussiness/myApplicationResult")
         },
     }
 }

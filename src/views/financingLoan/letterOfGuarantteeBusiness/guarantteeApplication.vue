@@ -110,7 +110,7 @@ export default {
      
       if(this.submitResult=='1'){
          //查看进度
-        this.$router.push("/financeBussiness/letterOfGuarantteeBusiness/applicationProgress")
+        this.$router.push("/financingLoan/letterOfGuarantteeBusiness/applicationProgress")
       }else{
         //重新提交
         this.submitResult=0

@@ -152,18 +152,18 @@ export default [
   ]},
   {id:'9',name:'融资贷款',path:'',children:[
     {id:'91',name:'贷款业务',path:'',children:[
-      {id:'911',name:'贷款查询',path:'',children:[]},
-      {id:'912',name:'贷款申请',path:'',children:[]},
-      {id:'913',name:'贷款放款',path:'',children:[]},
-      {id:'914',name:'贷款归还',path:'',children:[]},
-      {id:'915',name:'贷款计算器',path:'',children:[]}
+      { id: '911', name: '贷款查询', path:'/financingLoan/loanBussiness/loanInquiry',children:[]},
+      { id: '912', name: '贷款申请', path:'/financingLoan/loanBussiness/loanApplication',children:[]},
+      { id: '913', name: '贷款放款', path:'/financingLoan/loanBussiness/loansAndloans',children:[]},
+      { id: '914', name: '贷款归还', path:'/financingLoan/loanBussiness/loanRepayment',children:[]},
+      { id: '915', name: '贷款计算器', path:'/financingLoan/loanBussiness/lendersToolBox',children:[]}
     ]},
     {id:'92',name:'保函业务',path:'',children:[
-      {id:'921',name:'保函业务申请',path:'',children:[]},
-      {id:'922',name:'申请进度查询',path:'',children:[]},
-      {id:'923',name:'保函业务查询',path:'',children:[]},
+      { id: '921', name: '保函业务申请', path:'/financingLoan/letterOfGuarantteeBusiness/guarantteeApplication',children:[]},
+      { id: '922', name: '申请进度查询', path:'/financingLoan/letterOfGuarantteeBusiness/applicationProgress',children:[]},
+      { id: '923', name: '保函业务查询', path:'/financingLoan/letterOfGuarantteeBusiness/guarantteeInquiry',children:[]},
     ]},
-    {id:'93',name:'保理业务',path:'',children:[]},
+    { id: '93', name: '保理业务', path:'/financingLoan/factoringBusiness/factoringBusiness',children:[]},
   ]},
   {id:'10',name:'特色服务',path:'',children:[
     {id:'x1',name:'电力缴费',path:'',children:[]},

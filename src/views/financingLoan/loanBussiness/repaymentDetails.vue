@@ -197,7 +197,7 @@ export default {
         //下一步
         next(){
             // 还款结果页面
-            this.$router.push("/financeBussiness/loanBussiness/repaymentResult")
+            this.$router.push("/financingLoan/loanBussiness/repaymentResult")
         },
     }
 }

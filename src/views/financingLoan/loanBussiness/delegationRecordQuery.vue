@@ -87,7 +87,7 @@ export default {
     methods:{
         //查看详情
         handleClick(){
-            this.$router.push('/financeBussiness/loanBussiness/delegationRecordQueryDetails')
+            this.$router.push('/financingLoan/loanBussiness/delegationRecordQueryDetails')
         },
         
     }

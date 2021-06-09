@@ -26,7 +26,7 @@ export default {
   methods:{
     selectValue(){
       if(this.activeName=='贷款放款'){
-        this.$router.push('/financeBussiness/loanBussiness/loansAndloans')
+        this.$router.push('/financingLoan/loanBussiness/loansAndloans')
       }
         console.log("dianle",this.activeName)
     }

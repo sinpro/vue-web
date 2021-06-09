@@ -28,7 +28,7 @@ export default {
       selectClass(){
         console.log(this.activeName)
         if(this.activeName=='申请进度查询'){
-          this.$router.push('/financeBussiness/loanBussiness/loanInquiryApply')
+          this.$router.push('/financingLoan/loanBussiness/loanInquiryApply')
         }
       }
     }

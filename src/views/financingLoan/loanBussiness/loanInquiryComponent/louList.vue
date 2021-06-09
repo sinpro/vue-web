@@ -263,7 +263,7 @@ export default {
         },
         //去借据查询页面
         goToIouInquiry(){
-            this.$router.push('/financeBussiness/loanBussiness/IouInquiry')
+            this.$router.push('/financingLoan/loanBussiness/IouInquiry')
         },
     }
     

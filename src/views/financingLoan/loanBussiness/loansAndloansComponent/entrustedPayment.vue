@@ -57,7 +57,7 @@ export default {
   },
   methods:{
     loanDrawing(){
-      this.$router.push('/financeBussiness/loanBussiness/entrustedPaymentEntry')
+      this.$router.push('/financingLoan/loanBussiness/entrustedPaymentEntry')
     },
 
     

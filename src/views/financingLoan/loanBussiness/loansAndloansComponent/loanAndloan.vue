@@ -53,11 +53,11 @@ export default {
 
     //贷款支用
     loanDrawing(){
-      this.$router.push('/financeBussiness/loanBussiness/loanDrawing')
+      this.$router.push('/financingLoan/loanBussiness/loanDrawing')
     },
     //查看详情
     details(){
-      this.$router.push('/financeBussiness/loanBussiness/loanDetails')
+      this.$router.push('/financingLoan/loanBussiness/loanDetails')
     }
   }
 }

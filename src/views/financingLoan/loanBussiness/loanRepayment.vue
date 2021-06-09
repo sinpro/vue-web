@@ -35,7 +35,7 @@ export default {
     selectClass(){
       console.log(this.activeName)
       if(this.activeName=='贷款还款'){
-        this.$router.push('/financeBussiness/loanBussiness/loanPayment')
+        this.$router.push('/financingLoan/loanBussiness/loanPayment')
       }
     }
   }

@@ -28,7 +28,7 @@ export default {
       selectClass(){
         console.log(this.activeName)
         if(this.activeName=='贷款合同查询'){
-          this.$router.push('/financeBussiness/loanBussiness/loanInquiry')
+          this.$router.push('/financingLoan/loanBussiness/loanInquiry')
         }
       }
     }

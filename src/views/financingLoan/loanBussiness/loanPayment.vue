@@ -35,7 +35,7 @@ export default {
     selectClass(){
       console.log(this.activeName)
       if(this.activeName=='还款进度查询'){
-        this.$router.push('/financeBussiness/loanBussiness/loanRepayment')
+        this.$router.push('/financingLoan/loanBussiness/loanRepayment')
       }
     }
   }

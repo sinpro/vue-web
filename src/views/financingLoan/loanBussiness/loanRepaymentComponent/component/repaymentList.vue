@@ -50,7 +50,7 @@ export default {
         
         //去还款页面
         repayment(){
-            this.$router.push('/financeBussiness/loanBussiness/repaymentDetails')
+            this.$router.push('/financingLoan/loanBussiness/repaymentDetails')
         },
     }
     

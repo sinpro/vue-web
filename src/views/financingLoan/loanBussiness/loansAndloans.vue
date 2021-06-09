@@ -26,7 +26,7 @@ export default {
   methods:{
     selectValue(){
       if(this.activeName=='受托支付'){
-        this.$router.push('/financeBussiness/loanBussiness/entrustedPayment')
+        this.$router.push('/financingLoan/loanBussiness/entrustedPayment')
       }
         console.log("dianle",this.activeName)
     }

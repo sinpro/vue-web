@@ -237,7 +237,7 @@ export default {
         },
 
         submit(){
-            this.$router.push('/financeBussiness/loanBussiness/loanDrawingResult')
+            this.$router.push('/financingLoan/loanBussiness/loanDrawingResult')
         },
         
 
