@@ -94,14 +94,10 @@ export default {
     },
     // 鼠标离开后的菜单
     switchLeaveNav(data){
-      // this.hoverMenu = "";
+      this.hoverMenu = "";
     },
     // 菜单点击事件
     switchClickNav(dataAll){
-
-       this.isScroll=true;
-      this.hoverMenu = data.name;
-
       if(dataAll.name==='首页'){
         this.$router.push('/home');
       }else if(dataAll.name!=='更多功能'){
