@@ -28,7 +28,7 @@ export default {
   name:'searchLogut',
   data(){
     return {
-      
+      searchKey:''
     }
   },
   computed: {
@@ -38,7 +38,8 @@ export default {
     
   },
   methods:{
-    
+    gotoManagement(){},
+    doLogout(){}
    
   }
 }
