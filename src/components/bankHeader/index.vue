@@ -89,6 +89,7 @@ export default {
     },
     // 菜单点击事件
     switchClickNav(dataAll){
+      this.hoverMenu='';
       if(dataAll.name==='首页'){
         this.$router.push('/home');
       }else if(dataAll.name!=='更多功能'){
@@ -124,6 +125,7 @@ export default {
     },
     // 点击展开的菜单列表
     openChildClickNav(dataAll,dataCurrent,name='',parentList=[]){
+      this.hoverMenu = "";
       if(name==='更多功能'){
         const moreFeatureList={};
         moreFeatureList.children=[parentList];
