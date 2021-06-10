@@ -89,10 +89,10 @@ export default {
     },
     // 菜单点击事件
     switchClickNav(dataAll){
-      this.hoverMenu='';
       if(dataAll.name==='首页'){
         this.$router.push('/home');
       }else if(dataAll.name!=='更多功能'){
+        this.hoverMenu='';
         this.setSliderMenus(Object.freeze(dataAll || [])); // 设置侧边栏列表
         this.setBreadcrumb(getFirstActiveArr([dataAll])); // 设置面包屑
         this.setUserMenusAct(this.getBreadcrumb[0].id); // 设置菜单选中
