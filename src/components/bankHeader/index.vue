@@ -7,7 +7,7 @@
       <ul class="clearfix">
         <li 
           :class="[{'act':nav.id===getUserMenusAct},'fll','cursorPot']" 
-          v-for="nav in getUserMenus" 
+          v-for="(nav,index) in getUserMenus" 
           :key="nav.id" 
           @click="switchClickNav(nav)"
           @mouseover="switchOverNav(nav)"
@@ -27,14 +27,23 @@
                   v-for="openTit in nav.children"
                   :key="openTit.id"
                 >
-                  <label @click="openChildTitNav(nav,openTit,nav.name)"><i class="el-icon-picture-outline"></i>{{openTit.name}}</label>
-                  <p 
-                    v-for="openChild in openTit.children"
-                    :key="openChild.id"
-                    @click="openChildClickNav(nav,openChild,nav.name,openTit)"
-                  >
-                  {{openChild.name}}
-                  </p>
+                  <div class="bank-header-nav-open-content-li" :style="
+                    index == 5 ||index == 6
+                      ? 'width:132px'
+                      : index == 10
+                      ? 'width:149px'
+                      : ''
+                  ">
+                    <div>
+                    <span @click="openChildTitNav(nav,openTit,nav.name)"><i class="el-icon-picture-outline"></i>{{openTit.name}}</span>
+
+                      <p 
+                      v-for="openChild in openTit.children"
+                      :key="openChild.id"
+                      @click="openChildClickNav(nav,openChild,nav.name,openTit)"
+                      >{{openChild.name}}</p>
+                    </div>
+                  </div>
                 </li>
               </ol>
             </div>
@@ -85,10 +94,14 @@ export default {
     },
     // 鼠标离开后的菜单
     switchLeaveNav(data){
-      this.hoverMenu = "";
+      // this.hoverMenu = "";
     },
     // 菜单点击事件
     switchClickNav(dataAll){
+
+       this.isScroll=true;
+      this.hoverMenu = data.name;
+
       if(dataAll.name==='首页'){
         this.$router.push('/home');
       }else if(dataAll.name!=='更多功能'){
@@ -181,46 +194,66 @@ export default {
         // 展开的菜单样式
         .bank-header-nav-open{
           width: 100%;
+          box-sizing: border-box;
           margin: 0 auto;
           position: fixed;
           left: 0;
-          top: 142px;
-          padding-top:8px;
+          top: 151px;
           z-index: 9;
           cursor: default;
           background: rgba(255,255,255,0);
           &-content{
+            padding: 0 36px 36px;
             width: 1200px;
             margin: 0 auto;
-            padding: 16px;
             background: #fff;
-            box-shadow: 0px 2px 9px 0px 
-	    	rgba(0, 0, 0, 0.08);
+            box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.08);
             ol{
+              text-align: left;
               li{
+                width: 180px;
+                margin-top: 36px;
                 word-break:break-all;
                 display: inline-block;
                 vertical-align: top;
-                label{
-                  display: inline-block;
-                  color: #000000;
-                  margin-bottom: 20px;
-                  font-weight: 600;
-                  cursor: pointer;
-                  i{
-                    color: #C6A34F;
-                    margin-right:5px;
+                color: #1b1b1b;
+                text-align: center;
+                line-height: 16px;
+                position: relative;
+                .bank-header-nav-open-content-li{
+                  display: table;
+                  position: relative;
+                  left: 50%;
+                  text-align: left;
+                  div{
+                    display: table;
+                    position: relative;
+                    left: -50%;
                   }
-                }
+                  span{
+                    display: inline-block;
+                    color: #1b1b1b;
+                    margin-bottom: 4px;
+                    line-height: 16px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    i{
+                      color: #C6A34F;
+                      margin-right:5px;
+                    }
+                  }
+                  
                 p{
-                  height: 35px;
-                  line-height: 35px;
                   cursor: pointer;
-                  padding-left: 20px;
+                  margin-left: 20px;
+                  line-height: 16px;
+                  margin-top: 16px;
+                  color: #1b1b1b;
                 }
                 p:hover{
-                  color: #22B678;
+                  color: #059c5d;
                 }
+              }
               }
             }
           }
