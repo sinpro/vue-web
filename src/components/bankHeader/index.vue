@@ -27,11 +27,11 @@
                   v-for="openTit in nav.children"
                   :key="openTit.id"
                 >
-                  <label @click="openChildClickNav(nav,openTit)"><i class="el-icon-picture-outline"></i>{{openTit.name}}</label>
+                  <label @click="openChildTitNav(nav,openTit,nav.name)"><i class="el-icon-picture-outline"></i>{{openTit.name}}</label>
                   <p 
                     v-for="openChild in openTit.children"
                     :key="openChild.id"
-                    @click="openChildClickNav(nav,openChild)"
+                    @click="openChildClickNav(nav,openChild,nav.name,openTit)"
                   >
                   {{openChild.name}}
                   </p>
@@ -61,6 +61,7 @@ export default {
     ...mapGetters([
       "getUserMenus",
       "getUserMenusAct",
+      "getSliderMenus",
       "getBreadcrumb"
     ]),
   },
@@ -90,38 +91,67 @@ export default {
     switchClickNav(dataAll){
       if(dataAll.name==='首页'){
         this.$router.push('/home');
+      }else if(dataAll.name!=='更多功能'){
+        this.setSliderMenus(Object.freeze(dataAll || [])); // 设置侧边栏列表
+        this.setBreadcrumb(getFirstActiveArr([dataAll])); // 设置面包屑
+        this.setUserMenusAct(this.getBreadcrumb[0].id); // 设置菜单选中
+        const lastBreadcrumb=this.getBreadcrumb[this.getBreadcrumb.length-1]; // 获取面包屑最后一组
+        this.setSliderMenusAct(lastBreadcrumb.id);
+        this.$router.push(lastBreadcrumb.path)
+      }
+    },
+    // 点击展开的菜单头部
+    openChildTitNav(dataAll,dataCurrent,name=''){
+      this.hoverMenu='';
+      if(name==='更多功能'){
+        const moreFeatureList={};
+        moreFeatureList.children=[dataCurrent];
+        this.setSliderMenus(Object.freeze(moreFeatureList || [])); //设置当前的侧边栏列表
+        const deepChild=this.recursionChild(this.getSliderMenus); // 获取最深的一个节点
+        this.setBreadcrumb(getActiveClickArr(deepChild.id,[dataAll])); // 重置面包屑
+        this.setSliderMenusAct(deepChild.id); // 设置选中侧边栏
+        this.setUserMenusAct(this.getBreadcrumb[0].id); // 设置头部选中
+        this.$router.push(deepChild.path); // 跳转到对应路由
+      }else{
+        this.setSliderMenus(Object.freeze(dataAll || [])); //设置当前的侧边栏列表
+        const deepChild=this.recursionChild(dataCurrent); // 查找当前列表的最深的一个节点 
+        this.setBreadcrumb(getActiveClickArr(deepChild.id,[dataAll]));  // 重置面包屑
+        const lastBreadcrumb= this.getBreadcrumb[this.getBreadcrumb.length-1]; // 获取最后一个面包屑列表
+        this.setSliderMenusAct(lastBreadcrumb.id); // 设置选中侧边栏
+        this.setUserMenusAct(this.getBreadcrumb[0].id); // 设置头部选中
+        this.$router.push(lastBreadcrumb.path); // 跳转到对应路由
+      }
+    },
+    // 点击展开的菜单列表
+    openChildClickNav(dataAll,dataCurrent,name='',parentList=[]){
+      if(name==='更多功能'){
+        const moreFeatureList={};
+        moreFeatureList.children=[parentList];
+        this.setSliderMenus(Object.freeze(moreFeatureList || [])); //设置当前的侧边栏列表
+        this.setBreadcrumb(getActiveClickArr(dataCurrent.id,[dataAll])); // 重置面包屑
+        const lastBreadcrumb= this.getBreadcrumb[this.getBreadcrumb.length-1]; // 获取最后一个面包屑列表
+        this.setSliderMenusAct(lastBreadcrumb.id); // 设置选中侧边栏
+        this.setUserMenusAct(this.getBreadcrumb[0].id); // 设置头部选中
+        this.$router.push(lastBreadcrumb.path); // 跳转到对应路由
       }else{
         this.setSliderMenus(Object.freeze(dataAll || []));
-        this.setBreadcrumb(getFirstActiveArr([dataAll]))
-        this.setUserMenusAct(this.getBreadcrumb[0].id)
-        // console.log(this.getBreadcrumb,222)
-        if(this.getBreadcrumb[this.getBreadcrumb.length-1].children&&this.getBreadcrumb[this.getBreadcrumb.length-1].children.length>0){
-          this.setSliderMenusAct(this.getBreadcrumb[this.getBreadcrumb.length-1].children[0].id);
-          this.$router.push(this.getBreadcrumb[this.getBreadcrumb.length-1].children[0].path);
-          console.log(this.getBreadcrumb[this.getBreadcrumb.length-1],111)
-        }else{
-          this.setSliderMenusAct(this.getBreadcrumb[this.getBreadcrumb.length-1].id);
-          this.$router.push(this.getBreadcrumb[this.getBreadcrumb.length-1].path)
-        }
+        this.setBreadcrumb(getActiveClickArr(dataCurrent.id,[dataAll]));
+        const lastBreadcrumb= this.getBreadcrumb[this.getBreadcrumb.length-1]; // 获取最后一个面包屑列表
+        const deepChild=this.recursionChild(lastBreadcrumb); // 获取最后一个面包最深的一个节点
+        this.setBreadcrumb(getActiveClickArr(deepChild.id,[dataAll]));
+        this.setSliderMenusAct(deepChild.id); // 设置选中侧边栏
+        this.setUserMenusAct(this.getBreadcrumb[0].id); // 设置头部选中
+        this.$router.push(deepChild.path); // 跳转到对应路由
       }
     },
-    // 点击展开的菜单
-    openChildClickNav(dataAll,dataCurrent){
-      console.log(dataCurrent,1111)
-      this.hoverMenu='';
-      this.setSliderMenus(Object.freeze(dataAll || []));
-      this.setBreadcrumb(getActiveClickArr(dataCurrent.id,[dataAll]))
-      this.setUserMenusAct(this.getBreadcrumb[0].id)
-      // console.log(this.getBreadcrumb,'111')
-      if(this.getBreadcrumb[this.getBreadcrumb.length-1].children&&this.getBreadcrumb[this.getBreadcrumb.length-1].children.length>0){
-        this.setSliderMenusAct(this.getBreadcrumb[this.getBreadcrumb.length-1].children[0].id);
-        this.$router.push(this.getBreadcrumb[this.getBreadcrumb.length-1].children[0].path);
-        // console.log(this.getBreadcrumb[this.getBreadcrumb.length-1],111)
+    // 递归找到最后一个children
+    recursionChild(arr){
+      if(arr.children&&arr.children.length>0){
+        return this.recursionChild(arr.children[0])
       }else{
-        this.setSliderMenusAct(dataCurrent.id);
-        this.$router.push(dataCurrent.path)
+          return arr
       }
-    },
+    }
   }
 }
 </script>
