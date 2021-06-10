@@ -171,10 +171,13 @@ export default {
     ul{
       width: 1200px;
       margin: 0 auto;
-      li{
+      >li{
         font-size: 16px;
         color: #333333;
-        padding:12px 19px;
+        width: 99px ;
+        height: 46px;
+        line-height: 46px;
+        text-align: center;
         // 展开的菜单样式
         .bank-header-nav-open{
           width: 100%;
@@ -231,11 +234,10 @@ export default {
         content: "";
         border-radius: 18px 0;
         display: block;
-        width: calc(100% + 40px);
+        width: 100%;
         height: 4px;
         position: relative;
-        bottom: -8px;
-        left: -19px;
+        bottom: 4px;
         background: -webkit-gradient(linear, left top, right top, from(#c6ab75), to(#e8d2a2));
         background: linear-gradient(to right, #c6ab75, #e8d2a2);
       }
@@ -245,8 +247,9 @@ export default {
         }
       }
       &>li.act{
-        background-image: linear-gradient(-41deg, #C6AB75 0%, #E8D2A2 100%);
+        background: -webkit-gradient(linear, left top, right top, from(#c6ab75), to(#e8d2a2));
         border-radius: 17.5px 0.5px 17.5px 0.5px;
+        color: #fff;
       }
     }
   }

@@ -24,10 +24,12 @@ export default {
 <style lang="scss" scoped>
 .bank-footer{
     width: 100%;
-    height: 76px;
+    letter-spacing:-0.5px;
+    min-width: 1200px;
+    height: 70px;
+    line-height: 70px;
     background-color: #373737;
-    padding:30px 81px;
-    box-sizing: border-box;
+    overflow: hidden;
     color: #fff;
     text-align: center;
     span{
