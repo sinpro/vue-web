@@ -22,4 +22,15 @@ export default {
       noLoading:true
     });
   },
+  // 【xxx】获取随机因子
+  getRandomFactor: data => {
+    return ajax({
+      url: '/application/getRandomFactor',
+      method: 'post',
+      data,
+      devPreUrl: '',
+      prodPreUrl: '',
+      noLoading:true
+    });
+  },
 }

@@ -74,14 +74,20 @@ module.exports = {
     }]
   },
   plugins: [
-    //   new webpack.ProvidePlugin({
-    //     jquery: "jquery",
-    //     $: "jquery"
-    //   })
+      new webpack.ProvidePlugin({
+        jquery: "jquery",
+        $: "jquery"
+      }),
+    // new webpack.ProvidePlugin({ 
+    //   $:"jquery", 
+    //   jQuery:"jquery", 
+    //  "windows.jQuery":"jquery"
+    // }), 
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /zh-cn/),
   ],
   externals: {
     jquery: 'jQuery',
+    $: 'jQuery',
     ENV_CONFIG: 'ENV_CONFIG'
   },
   resolve: {

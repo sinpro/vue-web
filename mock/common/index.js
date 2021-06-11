@@ -17,6 +17,9 @@ export default  [
       );
     }
   },
+  /**
+   * [描述] 【xxx】获取菜单
+   * */
   {
     url: '/application/getMenus',
     type: 'post',
@@ -25,6 +28,20 @@ export default  [
         Mock.mock({
           grade:'B',
           menuList:navMenu
+        })
+      );
+    }
+  },
+  /**
+   * [描述] 【xxx】获取随机因子
+   * */
+   {
+    url: '/application/getRandomFactor',
+    type: 'post',
+    response: function (config) {
+      return createReturnData(
+        Mock.mock({
+          RandomFactor: "suijiyinzi"+new Date().getTime()+223
         })
       );
     }

@@ -17,6 +17,7 @@
 									<!-- 登录密码：{{pgeditor.generate()}} -->
                 
               </el-form-item>
+              <passwordControl></passwordControl>
             </el-form>
             <div class="tc" v-loading="loading">
               <!-- <el-button type="primary" @click="loginBtn('loginForm')">登录</el-button> -->
@@ -154,10 +155,13 @@ import { mapMutations } from "vuex";
 import api from 'apis/common.js';
 import storageTools from "src/tools/storageTools";
 import Template from '../../Template.vue';
-import successImg from '../../../images/icon/success.png'
+import successImg from '../../../images/icon/success.png';
+import passwordControl from './passwordControl.vue'; 
+
 export default {
   components: {
     Template,
+    passwordControl
   },
   data () {
     return {
@@ -207,6 +211,8 @@ export default {
   created () {
     },
   mounted () {
+    
+    
     this.getVerifyCode()
   },
   methods: {
@@ -374,6 +380,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 @import 'src/style/general/vars.scss';
 .formBox >>> .el-form-item__label {
