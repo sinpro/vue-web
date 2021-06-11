@@ -38,8 +38,22 @@ export default {
     
   },
   methods:{
-    gotoManagement(){},
-    doLogout(){}
+    gotoManagement(){
+       this.$router.push('/securityCenter/index');
+    },
+    doLogout(){
+      let me = this;
+      let params = {};
+      // this.$http.request(me, "POST", "/IM01004.do", params).then(function (response) {
+      storageTools.del("eCIFID");
+      storageTools.del("iCIFID");
+      storageTools.del("login_status");
+      storageTools.del("cstName");
+      me.$router.replace({ path: "/login" });
+      // }).catch(function (error) {
+      //     me.loading = false;
+      // });
+    }
    
   }
 }
