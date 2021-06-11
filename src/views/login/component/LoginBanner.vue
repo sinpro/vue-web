@@ -12,12 +12,12 @@
                 <el-input tyle="text" v-model="loginForm.cstNo" placeholder="请输入手机号码"></el-input>
               </el-form-item>
               <el-form-item prop='password'>
-                <el-input type="password" placeholder="登录密码" maxlength="12" v-model="loginForm.password"></el-input>
+                <!-- <el-input type="password" placeholder="登录密码" maxlength="12" v-model="loginForm.password"></el-input> -->
                
 									<!-- 登录密码：{{pgeditor.generate()}} -->
-                
+                <passwordControl></passwordControl>
               </el-form-item>
-              <passwordControl></passwordControl>
+              
             </el-form>
             <div class="tc" v-loading="loading">
               <!-- <el-button type="primary" @click="loginBtn('loginForm')">登录</el-button> -->

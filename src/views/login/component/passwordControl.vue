@@ -25,10 +25,18 @@ export default {
     // this.htmlUrl=ENV_CONFIG.assetsUrl+'assets/passwordControl.html';
     window.addEventListener('message', this.handleMessage)
     this.iframeWin = this.$refs.iframe.contentWindow;
+    this.initConfig();
   },
   methods: {
+    initConfig(){
+        this.iframeWin.postMessage({
+            pgeRZRandNum:'9999999999',
+            pgeRZDataB:'00000000000000000',
+        }, '*')
+    },
     sendMessage () {
       // 外部vue向iframe内部传数据
+      // this.$emit('sendMessage')
       this.iframeWin.postMessage({
         isSubmit:true
       }, '*')
