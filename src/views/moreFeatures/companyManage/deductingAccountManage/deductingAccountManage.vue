@@ -108,8 +108,7 @@
       border-radius: 4px;
       box-sizing: border-box;
       margin: 27px auto 36px;
-      background-image: url('../../../assets/images/companyManage/deductingAccountManage.png');
-
+      // background-image: url('../../../../images/accountManage/deductingAccountManage.png');
       .d1 {
         color: #83641b;
         font-size: 16px;

@@ -308,15 +308,17 @@ export default [
       {id:'y21',name:'预约开户',path:'',children:[]},
       {id:'y22',name:'大额取现预约',path:'',children:[]},
     ]},
-    {id:'y3',name:'企业管理台',path:'',children:[
-      {id:'y31',name:'企业信息管理',path:'',children:[]},
-      {id:'y32',name:'企业操作员管理',path:'',children:[]},
-      {id:'y33',name:'限额设置',path:'',children:[]},
-      {id:'y34',name:'汇款用途维护',path:'',children:[]},
-      {id:'y35',name:'扣款账户管理',path:'',children:[]},
-      {id:'y36',name:'操作员日志查询',path:'',children:[]},
-      {id:'y37',name:'短信通',path:'',children:[]},
-    ]},
+    {
+      id: 'y3', name: '企业管理台', path: '', children: [
+        { id: 'y31', name: '企业信息管理', path: '/more/companyManage/companyInfoManage', children: [] },
+        { id: 'y32', name: '企业操作员管理', path: '/more/companyManage/companyOperatorManage', children: [] },
+        { id: 'y33', name: '限额设置', path: '/more/companyManage/limitSetting', children: [] },
+        { id: 'y34', name: '汇款用途维护', path: '/more/companyManage/remittanceUsefor', children: [] },
+        { id: 'y35', name: '扣款账户管理', path: '/more/companyManage/deductingAccountManage', children: [] },
+        { id: 'y36', name: '操作员日志查询', path: '/more/companyManage/operatorLogQuery', children: [] },
+        { id: 'y37', name: '短信通', path: '/more/companyManage/manager/message', children: [] },
+      ]
+    },
     {id:'y4',name:'B2B网关支付',path:'',children:[
       {id:'y41',name:'支付明细查询',path:'',children:[]},
       {id:'y42',name:'网上支付开通/管理',path:'',children:[]},

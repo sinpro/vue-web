@@ -1,4 +1,159 @@
-export default []
+const recom = {
+    template: `<router-view></router-view>`
+}
+export default [
+    {
+        path: '/more/companyManage/companyInfoManage',
+        name: 'companyInfoManage',
+        component: () => import('views/moreFeatures/companyManage/companyInfoManage/index.vue'),
+        meta: { title: '企业信息管理' },
+        redirect: "/more/companyManage/companyInfoManage/basicInfoQuery",
+        children: [
+            {
+                path: '/more/companyManage/companyInfoManage/basicInfoQuery',
+                name: 'basicInfoQuery',
+                component: () => import('views/moreFeatures/companyManage/companyInfoManage/basicInfoQuery.vue'),
+                meta: { title: '企业基本信息查询' },
+            },
+            {
+                path: '/more/companyManage/companyInfoManage/accountPowerManage',
+                name: 'accountPowerManage',
+                component: () => import('views/moreFeatures/companyManage/companyInfoManage/accountPowerManage.vue'),
+                meta: { title: '企业账户权限管理' },
+            },
+            {
+                path: '/more/companyManage/companyInfoManage/authorizationQuery',
+                name: 'authorizationQuery',
+                component: () => import('views/moreFeatures/companyManage/companyInfoManage/authorizationQuery.vue'),
+                meta: { title: '授权模式查询' },
+            },
+            {
+
+                path: '/more/companyManage/companyInfoManage/openedFunctionQuery',
+                name: 'openedFunctionQuery',
+                component: () => import('views/moreFeatures/companyManage/companyInfoManage/openedFunctionQuery.vue'),
+                meta: { title: '开通业务查询' },
+            }
+        ]
+    },
+    {
+        path: '/more/companyManage/companyOperatorManage',
+        name: 'companyOperatorManage',
+        component: recom,
+        meta: { title: '企业操作员管理' },
+        redirect: "/more/companyManage/companyOperatorManage/operatorManage",
+        children: [
+            {
+                path: '/more/companyManage/companyOperatorManage/operatorManage',
+                name: 'operatorManage',
+                component: () => import('views/moreFeatures/companyManage/companyOperatorManage/operatorManage.vue'),
+                meta: { title: '操作员管理' },
+            },
+            {
+                path: '/more/companyManage/companyOperatorManage/authorizationManage',
+                name: 'authorizationManage',
+                component: () => import('views/moreFeatures/companyManage/companyOperatorManage/authorizationManage.vue'),
+                meta: { title: '修改操作员权限' },
+            },
+            {
+                path: '/more/companyManage/companyOperatorManage/accountManage',
+                name: 'accountManage',
+                component: () => import('views/moreFeatures/companyManage/companyOperatorManage/accountManage.vue'),
+                meta: { title: '修改可操作账户' },
+            },
+            {
+
+                path: '/more/companyManage/companyOperatorManage/functionManage',
+                name: 'functionManage',
+                component: () => import('views/moreFeatures/companyManage/companyOperatorManage/functionManage.vue'),
+                meta: { title: '修改可操作业务' },
+            }
+        ]
+    },
+    {
+        path: '/more/companyManage/limitSetting',
+        redirect: "/more/companyManage/limitSetting/operatorLimit",
+        name: 'operatorLimit',
+        component: () => import('views/moreFeatures/companyManage/limitSetting/index.vue'),
+        meta: { title: '限额设置', },
+        children: [
+            {
+                path: '/more/companyManage/limitSetting/operatorLimit',
+                name: 'operatorLimit',
+                component: () => import('views/moreFeatures/companyManage/limitSetting/operatorLimit.vue'),
+                meta: { title: '操作员限额设置', },
+            },
+            {
+                path: '/more/companyManage/limitSetting/accountLimit',
+                name: 'accountLimit',
+                component: () => import('views/moreFeatures/companyManage/limitSetting/accountLimit.vue'),
+                meta: { title: '企业账户限额设置', },
+            },
+            {
+                path: '/more/companyManage/limitSetting/specialLimit',
+                name: 'specialLimit',
+                component: () => import('views/moreFeatures/companyManage/limitSetting/specialLimit.vue'),
+                meta: { title: '特殊限额', },
+            },
+        ]
+    },
+    {
+        path: '/more/companyManage/remittanceUsefor',
+        name: 'remittanceUsefor',
+        component: () => import('views/moreFeatures/companyManage/remittanceUsefor/remittanceUsefor.vue'),
+        meta: { title: '汇款用途维护', },
+    },
+    {
+        path: '/more/companyManage/deductingAccountManage',
+        name: 'deductingAccountManage',
+        component: () => import('views/moreFeatures/companyManage/deductingAccountManage/deductingAccountManage.vue'),
+        meta: { title: '扣款账户管理', },
+    },
+    {
+        path: '/more/companyManage/operatorLogQuery',
+        name: 'operatorLogQuery',
+        component: () => import('views/moreFeatures/companyManage/operatorLogQuery/operatorLogQuery.vue'),
+        meta: { title: '操作员日志查询', },
+    },
+    // {
+    //     path: '/more/companyManage/manager/message',
+    //     name: 'message',
+    //     component: recom,
+    //     meta: { title: '短信通'},
+    //     children:[
+    //         {
+    //             path: '/more/companyManage/manager/message',
+    //             name: 'message',
+    //             component: () => import('views/moreFeatures/moreFeatures/companyManage/limitSetting/operatorLimit.vue'),
+    //             meta: { title: '短信通', },
+    //         },
+    //         {
+    //             path: '/more/companyManage/manager/message/contract',
+    //             name: 'contract',
+    //             component: () => import('views/moreFeatures/moreFeatures/companyManage/limitSetting/operatorLimit.vue'),
+    //             meta: { title: '签约', },
+    //         },
+    //         {
+    //             path: '/more/companyManage/manager/message/edit',
+    //             name: 'edit',
+    //             component: () => import('views/moreFeatures/moreFeatures/companyManage/limitSetting/operatorLimit.vue'),
+    //             meta: { title: '修改', },
+    //         }
+    //     ]
+    // },
+
+
+
+
+]
+
+
+
+
+
+
+// export default []
+
 
 /*
 //套餐购买
@@ -37,7 +192,7 @@ const operatorLimit = resolve => require(['@src/views/companyManage/limitSetting
 const accountLimit = resolve => require(['@src/views/companyManage/limitSetting/accountLimit.vue'], resolve);//企业账户限额设置
 const specialLimit = resolve => require(['@src/views/companyManage/limitSetting/specialLimit.vue'], resolve);//特殊限额
 const remittanceUsefor = resolve => require(['@src/views/companyManage/remittanceUsefor/remittanceUsefor.vue'], resolve);//汇款用途维护
-const deductingAccountManage = resolve => require(['@src/views/companyManage/deductingAccountManage/deductingAccountManage.vue'], resolve);//汇款用途维护
+const deductingAccountManage = resolve => require(['@src/views/companyManage/deductingAccountManage/deductingAccountManage.vue'], resolve);//扣款账户管理
 const operatorLogQuery = resolve => require(['@src/views/companyManage/operatorLogQuery/operatorLogQuery.vue'], resolve);//操作员日志查询
 //交易管理
 const tradeSelect = resolve => require(['@src/views/more/trade/select/tradeSelect.vue'], resolve)
@@ -100,7 +255,7 @@ const more = [
                                 path: '/more/meal/payment1/paymoney',
                                 name: 'paymoney',
                                 component: paymoney,
-                                meta: { title: '购买',menu: false},  
+                                meta: { title: '购买',menu: false},
                             },
                         ],
                     },
@@ -318,7 +473,7 @@ const more = [
                                 meta: { title: '修改',menu: false},
                             }
                         ]
-                    },   
+                    },
                 ]
             },
             {
@@ -356,7 +511,7 @@ const more = [
                                 name: 'openPay',
                                 component: openPay,
                                 meta: { title: '网上支付开通',menu: false},
-                            
+
                                 },
                                 {
                                     path: '/more/B2BPay/openPayManage/openResult',
@@ -366,14 +521,14 @@ const more = [
                                 },
                             ]
                         },
-                        
+
                         {
                             path: '/more/B2BPay/openPayManage/openManage',
                             name: 'openManage',
                             component: openManage,
                             meta: { title: '网上支付管理',menu: false},
                         },
-                        
+
                     ]
                   },
               ]
@@ -402,7 +557,7 @@ const more = [
                                 component: selectDetail,
                                 meta: { title: '交易详情',menu: false},
                             }
-                        ] 
+                        ]
                     },
                     {
                         path: '/more/trade/approval',
@@ -454,7 +609,7 @@ const more = [
                                                 path: '/more/trade/approval/rest/finish/finishDetail',
                                                 name: 'finishDetail',
                                                 component: finishDetail,
-                                                meta: { title: '交易详情',menu: false}, 
+                                                meta: { title: '交易详情',menu: false},
                                             }
                                         ]
                                     },
@@ -503,13 +658,13 @@ const more = [
                                                 path: '/more/trade/approval/waitForMe/end/endDet',
                                                 name: 'endDet',
                                                 component: endDet,
-                                                meta: { title: '交易详情',menu: false}, 
+                                                meta: { title: '交易详情',menu: false},
                                             }
                                         ]
                                     },
                                 ]
                             },
-                        ] 
+                        ]
                     },
                 ]
             },

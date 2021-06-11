@@ -49,7 +49,7 @@
   </div>
 </template>
 <script>
-import loginDeviceVue from "../../securityCenter/loginDevice/loginDevice.vue";
+// import loginDeviceVue from "../../securityCenter/loginDevice/loginDevice.vue";
 export default {
   data() {
     return {
