@@ -15,7 +15,7 @@
                 <!-- <el-input type="password" placeholder="登录密码" maxlength="12" v-model="loginForm.password"></el-input> -->
                
 									<!-- 登录密码：{{pgeditor.generate()}} -->
-                <passwordControl></passwordControl>
+                <passwordControl ref="passwordControl"></passwordControl>
               </el-form-item>
               
             </el-form>
@@ -165,6 +165,7 @@ export default {
   },
   data () {
     return {
+      passWordObj:{},
       successImg:successImg,
       loading: false,
       t1: '',
@@ -249,6 +250,10 @@ export default {
     question(){
       console.log("hahhaahhhahahahhahahh")
       this.$emit('questionFlag',this.questionFlag)
+    },
+    getPassWord(data){
+      console.log(data,111)
+      this.passWordObj=data;
     },
     loginSub(data){ // 登录提交
       // const params = {
