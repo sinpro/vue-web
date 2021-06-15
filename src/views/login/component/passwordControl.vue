@@ -9,7 +9,6 @@
             scrolling="no"
             class="iframe"
         ></iframe>
-        <el-button style="margin-bottom:30px;" @click="sendMessage">提交</el-button>
     </div>
 </template>
 <script>
@@ -21,14 +20,14 @@ export default {
       passwordControlUrl:'',
       iframeWin:'',
       isSubmit:false, //是否需要提交
-      randomFactor:"suijiyinzi"+new Date().getTime()+223, //-------
+      passwordObj:{}
     }
   },
   created(){
     this.getRandomFactor();
   },
   mounted(){
-    window.addEventListener('message', this.handleMessage)
+    // window.addEventListener('message', this.handleMessage,false)
     this.iframeWin = this.$refs.iframe.contentWindow;
   },
   methods: {
@@ -38,25 +37,25 @@ export default {
           ({ data = {}, errorCode = '', errorMessage = '响应失败' }) => {
             if (errorCode === '000000') {
               console.log(data,666)
-              this.passwordControlUrl='assets/passwordControl.html'+'?pgeRZRandNum='+ENV_CONFIG.pgeRZRandNum+'&pgeRZDataB='+ENV_CONFIG.pgeRZDataB+'&randomFactor='+data.RandomFactor+'&t='+new Date().getTime()+223;
+              this.passwordControlUrl=ENV_CONFIG.assetsUrl+'assets/passwordControl.html'+'?pgeRZRandNum='+ENV_CONFIG.pgeRZRandNum+'&pgeRZDataB='+ENV_CONFIG.pgeRZDataB+'&randomFactor='+data.RandomFactor+'&t='+new Date().getTime()+223;
             } else {
               this.$message.error(errorMessage);
             }
           }
       );
     },
-    // 外部vue向iframe内部传数据
-    sendMessage () {
+    // 获取密码控件 外部vue向iframe内部传数据
+    getEncryptionPassword(){
       this.isSubmit=true;
       this.iframeWin.postMessage({
         isSubmit:this.isSubmit
       }, '*')
-
-    },
-    handleMessage (event) {
-        console.log(event.data.params,0)
-        this.$emit('handleMessage',event.data.params)
-        // const data = event.data
+      window.addEventListener('message', (e)=>{
+        // if (Object.prototype.toString.call(this.submitPassWordFn)==='[object Function]') {
+        //    this.getPassWordFn(e.data.params);
+        //  }
+        this.$emit('submitPassWordFn',e.data.params)
+      },false)
     }
   }
 }

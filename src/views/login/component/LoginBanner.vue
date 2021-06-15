@@ -12,10 +12,7 @@
                 <el-input tyle="text" v-model="loginForm.cstNo" placeholder="请输入手机号码"></el-input>
               </el-form-item>
               <el-form-item prop='password'>
-                <!-- <el-input type="password" placeholder="登录密码" maxlength="12" v-model="loginForm.password"></el-input> -->
-               
-									<!-- 登录密码：{{pgeditor.generate()}} -->
-                <passwordControl ref="passwordControl"></passwordControl>
+                <passwordControl ref="passwordControl" @submitPassWordFn="submitPassWordFn"></passwordControl>
               </el-form-item>
               
             </el-form>
@@ -165,7 +162,6 @@ export default {
   },
   data () {
     return {
-      passWordObj:{},
       successImg:successImg,
       loading: false,
       t1: '',
@@ -248,20 +244,16 @@ export default {
 
     },
     question(){
-      console.log("hahhaahhhahahahhahahh")
       this.$emit('questionFlag',this.questionFlag)
     },
-    getPassWord(data){
-      console.log(data,111)
-      this.passWordObj=data;
-    },
-    loginSub(data){ // 登录提交
-      // const params = {
-      //   account:data.account,
-      //   pass:data.pass, // 密码
-      //   checkPass:data.checkPass,// 确认密码
-      // };
-      api.loginApi({}).then(
+    submitPassWordFn(data){ 
+      console.log(data,9999)
+      const params = {
+        account:'88888',
+        pass:data.pwdResult, // 密码
+        checkPass:data.pwdResult,// 确认密码
+      };
+      api.loginApi(params).then(
           ({ data = {}, errorCode = '', errorMessage = '响应失败' }) => {
             if (errorCode === '000000') {
               console.log(data,666)
@@ -272,6 +264,9 @@ export default {
             }
           }
       );
+    },
+    loginSub(data){ // 登录提交
+      this.$refs.passwordControl.getEncryptionPassword();
     },
     queryMenus(){
       api.getMenus({}).then(

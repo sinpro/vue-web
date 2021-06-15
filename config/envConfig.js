@@ -2,7 +2,7 @@ var envConfig = {
   /* =============================== 本地开发环境配置 ============================== */
   dev: {
     base_url: 'dev',
-    assetsUrl:'http://localhost:8800/',
+    assetsUrl:'http://localhost:8080/',
     pgeRZRandNum:'v0gid5atffi8dgq2ouplwzcs7v8s7kn0', //-------
     pgeRZDataB:'PaS7f/WecSXPJkJ5d6kB9UJuxq8El8DZa2aBXJvD2w4=', //-------
     
