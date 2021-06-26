@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <el-button v-track="{triggerType:'click',currentUrl: $route.path,behavior:'点击xxx按钮',businessCode: 19,actionType:'xxx-click'}"  @click="e=>clickTrack(e,{'contentId':'AQZX-nh','contentName':'你好'})">埋点</el-button>
     <!--头部组件-->
     <bankHeader></bankHeader>
     <!--内容-->
@@ -43,6 +44,9 @@ export default {
       "setSliderMenus",
       "setUserMenusAct"
     ]),
+    clickTrack(e, menu){
+        this.$trackHandler(e, menu, 'click');
+    },
   }
 }
 </script>

@@ -12,7 +12,7 @@
                 <el-input tyle="text" v-model="loginForm.cstNo" placeholder="请输入手机号码"></el-input>
               </el-form-item>
               <el-form-item prop='password'>
-                <passwordControl ref="passwordControl" @submitPassWordFn="submitPassWordFn"></passwordControl>
+                <passwordControl :isNeedLevel="true" ref="passwordControl" @submitPassWordFn="submitPassWordFn"></passwordControl>
               </el-form-item>
               
             </el-form>

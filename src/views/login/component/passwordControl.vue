@@ -23,6 +23,12 @@ export default {
       passwordObj:{}
     }
   },
+  props:{
+    isNeedLevel:{
+      type: Boolean,
+      default: false
+    }
+  },
   created(){
     this.getRandomFactor();
   },
@@ -37,7 +43,7 @@ export default {
           ({ data = {}, errorCode = '', errorMessage = '响应失败' }) => {
             if (errorCode === '000000') {
               console.log(data,666)
-              this.passwordControlUrl=ENV_CONFIG.assetsUrl+'assets/passwordControl.html'+'?pgeRZRandNum='+ENV_CONFIG.pgeRZRandNum+'&pgeRZDataB='+ENV_CONFIG.pgeRZDataB+'&randomFactor='+data.RandomFactor+'&t='+new Date().getTime()+223;
+              this.passwordControlUrl=ENV_CONFIG.assetsUrl+'assets/passwordControl.html'+'?pgeRZRandNum='+ENV_CONFIG.pgeRZRandNum+'&pgeRZDataB='+ENV_CONFIG.pgeRZDataB+'&randomFactor='+data.RandomFactor+'&isNeedLevel='+this.isNeedLevel+'&t='+new Date().getTime()+223;
             } else {
               this.$message.error(errorMessage);
             }
@@ -54,7 +60,11 @@ export default {
         // if (Object.prototype.toString.call(this.submitPassWordFn)==='[object Function]') {
         //    this.getPassWordFn(e.data.params);
         //  }
-        this.$emit('submitPassWordFn',e.data.params)
+        if(this.isSubmit){
+          this.$emit('submitPassWordFn',e.data.params)
+          this.isSubmit=false;
+        }
+        
       },false)
     }
   }
@@ -63,7 +73,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 .iframe{
-  height: 60px;
+  height: 40px;
   width: 350px;
   padding: 0;
   margin: 0;

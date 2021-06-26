@@ -26,16 +26,16 @@ const {
   publicPath,
   dllStaticList
 } = require('../config');
-const NODE_ENV = process.env.NODE_ENV;	// node环境配置   production|development|...
-const NODE_MODE = process.env.NODE_MODE;	// node打包环境配置 dev|fat|uat|prod|...
+const NODE_ENV = process.env.NODE_ENV; // node环境配置   production|development|...
+const NODE_MODE = process.env.NODE_MODE; // node打包环境配置 dev|fat|uat|prod|...
 let bundleAnalyzerPlugin = {
-  plugins: process.env.NODE_TYPE === 'watch' ? [new BundleAnalyzerPlugin()]: []
+  plugins: process.env.NODE_TYPE === 'watch' ? [new BundleAnalyzerPlugin()] : []
 };
 // dll方式处理的资源
 const dllStaticPlugins = {
   plugins: []
 };
-for(let dll in dllStaticList){
+for (let dll in dllStaticList) {
   dllStaticPlugins.plugins.push(new webpack.DllReferencePlugin({
     context: path.resolve(__dirname),
     manifest: path.resolve(__dirname, '../public/dll', `${dll}.manifest.json`)
@@ -43,10 +43,10 @@ for(let dll in dllStaticList){
 }
 const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, {
   mode: NODE_ENV,
-  output : {
-    path      : path.resolve(__dirname, `../dist/dist-${NODE_MODE}`),
+  output: {
+    path: NODE_MODE !== 'prod' ? path.resolve(__dirname, `../dist/dist-${NODE_MODE}`) : path.resolve(__dirname, `../dist`),
     publicPath: publicPath,
-    filename  : `${assets}/js/[name].js?v=[chunkhash:${hashLen}]`
+    filename: `${assets}/js/[name].js?v=[chunkhash:${hashLen}]`
   },
   module: {
     rules: [{
@@ -59,8 +59,7 @@ const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, 
           }
         },
         'css-loader',
-        'sass-loader',
-        {
+        'sass-loader', {
           loader: 'sass-resources-loader',
           options: {
             resources: path.resolve(__dirname, '../src/style/base/mixin.scss')
@@ -83,7 +82,7 @@ const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, 
       include: srcPath,
       use: [
         'thread-loader',
-        'cache-loader',{
+        'cache-loader', {
           loader: 'vue-loader',
           options: {
             loaders: {
@@ -191,27 +190,25 @@ const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, 
     }),
     new AddAssetHtmlPlugin({
       filepath: path.resolve(__dirname, '../public/dll/*.dll.*.js'),
-      outputPath: 'assets/dll',//文件输出地址
+      outputPath: 'assets/dll', //文件输出地址
       publicPath: './assets/dll'
     }),
     // 自定义html插件处理系统常量配置
     new InsertHtmlSiteConfigPlugin({
-      nodeMode: NODE_MODE,  // 当前的环境
+      nodeMode: NODE_MODE, // 当前的环境
       variableKey: 'ENV_CONFIG',
-      variableValue: envConfig[`${NODE_MODE}`]||{}
+      variableValue: envConfig[`${NODE_MODE}`] || {}
     }),
     // 清理删除上一次打包文件
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, `../dist/dist-${NODE_MODE}`)]
+      cleanOnceBeforeBuildPatterns: NODE_MODE !== 'prod' ? [path.resolve(__dirname, `../dist/dist-${NODE_MODE}`)] : [path.resolve(__dirname, `../dist`)]
     }),
     // 复制静态资源到对应目录
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../public/assets/'),
-        to: 'assets',
-        ignore: ['.*']
-      }
-    ]),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, '../public/assets/'),
+      to: 'assets',
+      ignore: ['.*']
+    }]),
     new vueLoaderPlugin(),
     // 配置node环境变量或mock环境
     new webpack.DefinePlugin({
@@ -231,8 +228,7 @@ const webpackConfig = merge(baseConfig, bundleAnalyzerPlugin, dllStaticPlugins, 
     hints: false
   },
   // devtool: '#cheap-module-eval-source-map',   // #eval-source-map
-  devtool: false,   // #eval-source-map
+  devtool: false, // #eval-source-map
   stats: 'errors-only'
 });
 module.exports = webpackConfig;
-
